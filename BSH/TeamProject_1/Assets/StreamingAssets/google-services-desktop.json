@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1041451258030",
+    "firebase_url": "https://unity-teamproject.firebaseio.com",
+    "project_id": "unity-teamproject",
+    "storage_bucket": "unity-teamproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041451258030:android:c6d7cb846c337592059d3f",
+        "android_client_info": {
+          "package_name": "com.YunSangMinShip.TeamProject_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041451258030-kslqapev3g7j6r6d16opil2eacbc8mjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRUD7jZfp1tNdaFk8aBvLth-1gw528x_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041451258030-kslqapev3g7j6r6d16opil2eacbc8mjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
