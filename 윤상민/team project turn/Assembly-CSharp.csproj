@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\cardsystem.cs" />
+    <Compile Include="Assets\gamemanager.cs" />
     <Compile Include="Assets\playermove.cs" />
     <Compile Include="Assets\turnsystem.cs" />
     <Reference Include="Unity.Timeline.Editor">

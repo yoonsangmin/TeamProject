@@ -7,6 +7,10 @@ TagManager:
   - p1
   - p2
   - p3
+  - turn end
+  - c1
+  - c2
+  - c3
   layers:
   - Default
   - TransparentFX
