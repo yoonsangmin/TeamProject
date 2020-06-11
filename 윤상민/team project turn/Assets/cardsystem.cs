@@ -26,19 +26,20 @@ public class cardsystem : MonoBehaviour
     //터치 했을 때 실행하게 변경해야 함
     public void Select_1()
     {
+        
         gamemanager.instance.cardturn++;
 
         if(gamemanager.instance.cardturn == 1)
         {
-            gamemanager.instance.p1_selectedNum = 1;
+            gamemanager.instance.selectedNum[0] = 1;
         }
         else if (gamemanager.instance.cardturn == 2)
         {
-            gamemanager.instance.p2_selectedNum = 1;
+            gamemanager.instance.selectedNum[1] = 1;
         }
         else if (gamemanager.instance.cardturn == 3)
         {
-            gamemanager.instance.p3_selectedNum = 1;
+            gamemanager.instance.selectedNum[2] = 1;
         }
     }
 
@@ -48,15 +49,15 @@ public class cardsystem : MonoBehaviour
 
         if (gamemanager.instance.cardturn == 1)
         {
-            gamemanager.instance.p1_selectedNum = 2;
+            gamemanager.instance.selectedNum[0] = 2;
         }
         else if (gamemanager.instance.cardturn == 2)
         {
-            gamemanager.instance.p2_selectedNum = 2;
+            gamemanager.instance.selectedNum[1] = 2;
         }
         else if (gamemanager.instance.cardturn == 3)
         {
-            gamemanager.instance.p3_selectedNum = 2;
+            gamemanager.instance.selectedNum[2] = 2;
         }
     }
 
@@ -66,15 +67,15 @@ public class cardsystem : MonoBehaviour
 
         if (gamemanager.instance.cardturn == 1)
         {
-            gamemanager.instance.p1_selectedNum = 3;
+            gamemanager.instance.selectedNum[0] = 3;
         }
         else if (gamemanager.instance.cardturn == 2)
         {
-            gamemanager.instance.p2_selectedNum = 3;
+            gamemanager.instance.selectedNum[1] = 3;
         }
         else if (gamemanager.instance.cardturn == 3)
         {
-            gamemanager.instance.p3_selectedNum = 3;
+            gamemanager.instance.selectedNum[2] = 3;
         }
     }
 
@@ -84,13 +85,13 @@ public class cardsystem : MonoBehaviour
     {
         gamemanager.instance.cardturn = 0;
 
-        gamemanager.instance.sum_card = gamemanager.instance.p1_selectedNum + gamemanager.instance.p2_selectedNum + gamemanager.instance.p3_selectedNum;
+        gamemanager.instance.sum_card = gamemanager.instance.selectedNum[0] + gamemanager.instance.selectedNum[1] + gamemanager.instance.selectedNum[2];
         //세 플레이어 모든 카드의 숫자 합
 
 
-        gamemanager.instance.p1_selectedNum = 0;
-        gamemanager.instance.p2_selectedNum = 0;
-        gamemanager.instance.p3_selectedNum = 0;
+        //gamemanager.instance.selectedNum[0] = 0;
+        //gamemanager.instance.selectedNum[1] = 0;
+        //gamemanager.instance.selectedNum[2] = 0;
 
         GameObject.FindWithTag("turn end").GetComponent<Button>().interactable = true;
         GameObject.FindWithTag("c1").GetComponent<Button>().interactable = false;

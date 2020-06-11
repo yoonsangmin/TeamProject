@@ -25,6 +25,16 @@ public class turnsystem : MonoBehaviour
     public int[] order = Enumerable.Range(0, 3).ToArray();      //0, 1, 2를 넣는 배열을 만듦, 순서를 정할 때 사용함
     //public GameObject tempPlayer;
 
+
+    //각 보드칸이 가지고 있는 돈의 밸류를 배열로 만들어 놨음
+    public int[] board_money;
+
+    //선택한 칸이 몇번째 칸 인지
+    int cann;
+
+    //값을 변경하고 난 후 밟았는지 트리거 몇번 밟았는지 알려줘야 하기 때문에 int 썼음
+    public int[] trigger_a;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,21 +114,54 @@ public class turnsystem : MonoBehaviour
 
         if (gamemanager.instance.tempPlayer == gamemanager.instance.first_Player)
         {
+            //이동, 현재 자리도 카운트 해야 하기 때문에 - 1을 하고, 보드 위치이기 때문에 %8해줬음
             gamemanager.instance.player1 += gamemanager.instance.sum_card - 1;
-            //이동이 현재 자리도 카운트 해야 하기 때문에 - 1을 해줘야 함
             gamemanager.instance.player1 %= 8;
+
+            if (trigger_a[gamemanager.instance.player1] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            {
+                for (int i = 0; i < trigger_a[gamemanager.instance.player1]; i++)
+                {
+                    //다시 초기화 해줌
+                    board_money[gamemanager.instance.player1] /= 2;
+                }
+                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
+                trigger_a[gamemanager.instance.player1] = 0;
+            }
         }
 
         else if (gamemanager.instance.tempPlayer == gamemanager.instance.second_Player)
         {
             gamemanager.instance.player2 += gamemanager.instance.sum_card - 1;
             gamemanager.instance.player2 %= 8;
+
+            if (trigger_a[gamemanager.instance.player2] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            {
+                for (int i = 0; i < trigger_a[gamemanager.instance.player2]; i++)
+                {
+                    //다시 초기화 해줌
+                    board_money[gamemanager.instance.player2] /= 2;
+                }
+                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
+                trigger_a[gamemanager.instance.player2] = 0;
+            }
         }
 
         else if (gamemanager.instance.tempPlayer == gamemanager.instance.third_Player)
         {
             gamemanager.instance.player3 += gamemanager.instance.sum_card - 1;
             gamemanager.instance.player3 %= 8;
+
+            if (trigger_a[gamemanager.instance.player3] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            {
+                for (int i = 0; i < trigger_a[gamemanager.instance.player3]; i++)
+                {
+                    //다시 초기화 해줌
+                    board_money[gamemanager.instance.player3] /= 2;
+                }
+                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
+                trigger_a[gamemanager.instance.player3] = 0;
+            }
         }
 
         gamemanager.instance.sum_card = 0;
@@ -129,6 +172,30 @@ public class turnsystem : MonoBehaviour
     void TurnProgress()
     {
         Debug.Log(gamemanager.instance.turn_count +1 + "턴 입니다.");
+
+        if(gamemanager.instance.player1 == 0)
+        {
+            if (true)   //내가 원하는 보드의 칸을 선택했을 때
+            {
+                //트리거 값을 1올려 줬음 해당 칸을 몇 번 배수 해줬는지 알아야 하기 때문
+                trigger_a[cann] += 1;
+                //해당 칸의 값을 두 배 해줌
+                board_money[cann] *= 2;
+            }
+        }
+
+
+        //모든 플레이어가 같은 숫자가나왔을 때
+        if (gamemanager.instance.selectedNum[0] == gamemanager.instance.selectedNum[1] && gamemanager.instance.selectedNum[1] == gamemanager.instance.selectedNum[2])
+        {
+            if (true)       //내가 원하는 보드의 칸을 선택했을 때
+            {
+                board_money[cann] *= -1;
+            }
+            //턴을 줄여버림, 다시 이전 플레이어가 한 번 더 플레이 함
+            gamemanager.instance.turn_count--;
+        }
+
         //current_Player.transform.Translate(0.0f, 0.0f, temp);
         //Debug.Log("" + current_Player.name + current_Player.transform.position.z);
 
