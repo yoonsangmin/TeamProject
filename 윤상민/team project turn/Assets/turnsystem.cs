@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class turnsystem : MonoBehaviour
 {
@@ -23,26 +24,38 @@ public class turnsystem : MonoBehaviour
     private int temp;
 
     public int[] order = Enumerable.Range(0, 3).ToArray();      //0, 1, 2를 넣는 배열을 만듦, 순서를 정할 때 사용함
-    //public GameObject tempPlayer;
+                                                                //public GameObject tempPlayer;
 
 
-    //각 보드칸이 가지고 있는 돈의 밸류를 배열로 만들어 놨음
-    public int[] board_money;
+    //각 보드칸이 가지고 있는 정보를 구조체로 만들었음
+    public struct board
+    {
+        //각 보드칸이 가지고 있는 돈의 밸류
+        public int money;
+        //money값을 몇번 곱해줬는지 알려주는 트리거 값
+        public int trigger_a;
+    };
+
+    //전체 8칸 짜리 보드 선언
+    public board[] gameboard = new board[8];
 
     //선택한 칸이 몇번째 칸 인지
     int cann;
 
-    //값을 변경하고 난 후 밟았는지 트리거 몇번 밟았는지 알려줘야 하기 때문에 int 썼음
-    public int[] trigger_a;
-
     // Start is called before the first frame update
     void Start()
     {
+        //랜덤으로 플레이어 순서를 결정하는 함수 아마 이제 필요없는 함수
         SetPlayerOrder();
-        //랜덤으로 플레이어 순서를 결정하는 함수
+
         //나중에 카드를 선택해서 플레이어 순서를 결정하는 함수로 변경해야함
         //1, 2, 3을 랜덤으로 중복없이 생성하는 코드는 사용 가능할 거 같음
-        
+
+
+
+        //보드 초기화 함수
+        Initialize_Board();
+       
     }
 
     // Update is called once per frame
@@ -51,18 +64,96 @@ public class turnsystem : MonoBehaviour
         
     }
 
+
+    //보드 점수 초기화 함수
+    void Initialize_Board()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            gameboard[i].money = 0;
+            gameboard[i].trigger_a = 0;
+        }
+
+        //보드 점수 설정 하는 부분
+        gameboard[1].money = 2;
+        gameboard[3].money = -3;
+        gameboard[5].money = -4;
+        gameboard[7].money = 5;
+    }    
+
+    //i번째 플레이어가 어떤 칸에 있는지 체크 함수
+    void Check_Cann(int i)
+    {
+        //플레이어가 밟은 칸의 머니를 플레이어 한테 추가함
+        gamemanager.instance.player[i].player_money = gameboard[gamemanager.instance.player[i].player_pos].money;
+
+        //감옥칸 밟았을 때
+        if (gamemanager.instance.player[i].player_pos == 2)
+            gamemanager.instance.player[i].is_prison = true;
+
+        //기부칸 밟았을 때
+        else if (gamemanager.instance.player[i].player_pos == 4)
+        {
+            //밟은 플레이어한테 2원을 뺐음
+            gamemanager.instance.player[i].player_money -= 2;
+            //다른 플레이어들한테 1원씩 뿌림
+            gamemanager.instance.player[(i + 1) % 3].player_money++;
+            //다른 플레이어들한테 1원씩 뿌림
+            gamemanager.instance.player[(i + 2) % 3].player_money++;
+        }
+
+        //우주 여행칸 밟았을 때
+        else if (gamemanager.instance.player[i].player_pos == 6)
+            gamemanager.instance.player[i].is_travel = true;
+
+        //시작칸 밟았을 때
+        else if (gamemanager.instance.player[i].player_pos == 0)
+        {
+            if (true)   //내가 원하는 보드의 칸을 선택했을 때
+            {
+                //트리거 값을 1올려 줬음 해당 칸을 몇 번 배수 해줬는지 알아야 하기 때문
+                gameboard[cann].trigger_a += 1;
+                //해당 칸의 값을 두 배 해줌
+                gameboard[cann].money *= 2;
+            }
+        }
+
+    }
+    //감옥 함수 i = 플레이어
+    void Prison(int i)
+    {
+        //카드 내는작업 실행해야 함
+
+
+        //감옥 작업 끝나면 트리거를 false로 바꿔줌
+        gamemanager.instance.player[i].is_prison = false;
+    }
+
+    //우주 여행 함수 i = 플레이어
+    void Travel(int i)
+    {
+        if (true)   //내가 원하는 보드의 칸을 선택했을 때
+        {
+            //플레이어가 해당 위치까지 이동
+            gamemanager.instance.player[i].player_pos = cann;
+        }
+        //여행 작업 끝나면 트리거를 false로 바꿔줌
+        gamemanager.instance.player[i].is_travel = false;
+    }
+
+
     //턴 종료 버튼
     //턴 종료 누르고 나면 비활성화
     public void ButtonClick()
     {
         PlayingTurn();
-
-        GameObject.FindWithTag("turn end").GetComponent<Button>().interactable = false;
-        GameObject.FindWithTag("c1").GetComponent<Button>().interactable = true;
-        GameObject.FindWithTag("c2").GetComponent<Button>().interactable = true;
-        GameObject.FindWithTag("c3").GetComponent<Button>().interactable = true;
         //버튼이 클릭이 됐을 때 턴 카운트를 1씩 올리면서 말을 이동할 플레이어를 변경함
         //나중엔 각 턴이 끝났을 때 호출하게 하면 좋을 것 같음
+        GameObject.FindWithTag("turn end").GetComponent<UnityEngine.UI.Button>().interactable = false;
+        GameObject.FindWithTag("c1").GetComponent<UnityEngine.UI.Button>().interactable = true;
+        GameObject.FindWithTag("c2").GetComponent<UnityEngine.UI.Button>().interactable = true;
+        GameObject.FindWithTag("c3").GetComponent<UnityEngine.UI.Button>().interactable = true;
+        
     }
 
     void PlayingTurn()
@@ -118,15 +209,15 @@ public class turnsystem : MonoBehaviour
             gamemanager.instance.player1 += gamemanager.instance.sum_card - 1;
             gamemanager.instance.player1 %= 8;
 
-            if (trigger_a[gamemanager.instance.player1] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            if (gameboard[gamemanager.instance.player1].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
             {
-                for (int i = 0; i < trigger_a[gamemanager.instance.player1]; i++)
+                for (int i = 0; i < gameboard[gamemanager.instance.player1].trigger_a; i++)
                 {
                     //다시 초기화 해줌
-                    board_money[gamemanager.instance.player1] /= 2;
+                    gameboard[gamemanager.instance.player1].money /= 2;
                 }
                 //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                trigger_a[gamemanager.instance.player1] = 0;
+                gameboard[gamemanager.instance.player1].trigger_a = 0;
             }
         }
 
@@ -135,15 +226,15 @@ public class turnsystem : MonoBehaviour
             gamemanager.instance.player2 += gamemanager.instance.sum_card - 1;
             gamemanager.instance.player2 %= 8;
 
-            if (trigger_a[gamemanager.instance.player2] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            if (gameboard[gamemanager.instance.player2].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
             {
-                for (int i = 0; i < trigger_a[gamemanager.instance.player2]; i++)
+                for (int i = 0; i < gameboard[gamemanager.instance.player2].trigger_a; i++)
                 {
                     //다시 초기화 해줌
-                    board_money[gamemanager.instance.player2] /= 2;
+                    gameboard[gamemanager.instance.player2].money /= 2;
                 }
                 //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                trigger_a[gamemanager.instance.player2] = 0;
+                gameboard[gamemanager.instance.player2].trigger_a = 0;
             }
         }
 
@@ -152,15 +243,15 @@ public class turnsystem : MonoBehaviour
             gamemanager.instance.player3 += gamemanager.instance.sum_card - 1;
             gamemanager.instance.player3 %= 8;
 
-            if (trigger_a[gamemanager.instance.player3] != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+            if (gameboard[gamemanager.instance.player3].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
             {
-                for (int i = 0; i < trigger_a[gamemanager.instance.player3]; i++)
+                for (int i = 0; i < gameboard[gamemanager.instance.player3].trigger_a; i++)
                 {
                     //다시 초기화 해줌
-                    board_money[gamemanager.instance.player3] /= 2;
+                    gameboard[gamemanager.instance.player3].money /= 2;
                 }
                 //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                trigger_a[gamemanager.instance.player3] = 0;
+                gameboard[gamemanager.instance.player3].trigger_a = 0;
             }
         }
 
@@ -173,16 +264,16 @@ public class turnsystem : MonoBehaviour
     {
         Debug.Log(gamemanager.instance.turn_count +1 + "턴 입니다.");
 
-        if(gamemanager.instance.player1 == 0)
-        {
-            if (true)   //내가 원하는 보드의 칸을 선택했을 때
-            {
-                //트리거 값을 1올려 줬음 해당 칸을 몇 번 배수 해줬는지 알아야 하기 때문
-                trigger_a[cann] += 1;
-                //해당 칸의 값을 두 배 해줌
-                board_money[cann] *= 2;
-            }
-        }
+        //if(gamemanager.instance.player1 == 0)
+        //{
+        //    if (true)   //내가 원하는 보드의 칸을 선택했을 때
+        //    {
+        //        //트리거 값을 1올려 줬음 해당 칸을 몇 번 배수 해줬는지 알아야 하기 때문
+        //        gameboard[cann].trigger_a += 1;
+        //        //해당 칸의 값을 두 배 해줌
+        //        gameboard[cann].money *= 2;
+        //    }
+        //}
 
 
         //모든 플레이어가 같은 숫자가나왔을 때
@@ -190,7 +281,7 @@ public class turnsystem : MonoBehaviour
         {
             if (true)       //내가 원하는 보드의 칸을 선택했을 때
             {
-                board_money[cann] *= -1;
+                gameboard[cann].money *= -1;
             }
             //턴을 줄여버림, 다시 이전 플레이어가 한 번 더 플레이 함
             gamemanager.instance.turn_count--;

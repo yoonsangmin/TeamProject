@@ -104,12 +104,13 @@ public class time : MonoBehaviour
     {
         for (int i = 0; i < 3; ++i)
         {
-            int ranIdx = Random.Range(i, 3);
             //i부터 3사이에 서 랜덤으로 숫자를 하나 정함(인덱스 값임)
+            int ranIdx = Random.Range(i, 3);
+            
             int tmp = order[ranIdx];
             order[ranIdx] = order[i];
-            order[i] = tmp;
             //랜덤으로 정한 인덱스와 i를 스왑함
+            order[i] = tmp;
         }
     }
 
