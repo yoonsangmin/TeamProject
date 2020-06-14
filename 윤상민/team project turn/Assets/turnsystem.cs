@@ -168,7 +168,7 @@ public class turnsystem : MonoBehaviour
 
     void FindPlayer()
     {
-        switch (gamemanager.instance.turn_count % 3)
+        switch (gamemanager.instance.turn_count % 3)            //현재 플레이어 오브젝트 찾아서 저장하는 스위치문 필요 없을 거 같은데 초기에 짠 코드라 일단 놔뒀음
         {
             case 0:
                 gamemanager.instance.tempPlayer = gamemanager.instance.first_Player;
@@ -200,65 +200,57 @@ public class turnsystem : MonoBehaviour
                 break;
                 //오류 부분인데 필요할까 잘 모르겠음
         }
-        //각 플레이어에 있는 스크립트 컴포넌트에 있는 정수값을 1씩 증가해 줌
 
 
-        if (gamemanager.instance.tempPlayer == gamemanager.instance.first_Player)
+        //if (gamemanager.instance.tempPlayer == gamemanager.instance.first_Player)   //현재플레이어 체크하는 조건문인데 이건 내가 오브젝트로 해 놨는데 수정해야 할 거 같음
+        if (gamemanager.instance.turn_count % 3 == 1)       //전체 턴에서 모듈러연산을 해서 1번 2번 3번 플레이어 체크함 - 수정하긴 했는데 이대로 해도 되는지 잘 모르겠음
         {
-            //이동, 현재 자리도 카운트 해야 하기 때문에 - 1을 하고, 보드 위치이기 때문에 %8해줬음
-            gamemanager.instance.player1 += gamemanager.instance.sum_card - 1;
-            gamemanager.instance.player1 %= 8;
-
-            if (gameboard[gamemanager.instance.player1].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
-            {
-                for (int i = 0; i < gameboard[gamemanager.instance.player1].trigger_a; i++)
-                {
-                    //다시 초기화 해줌
-                    gameboard[gamemanager.instance.player1].money /= 2;
-                }
-                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                gameboard[gamemanager.instance.player1].trigger_a = 0;
-            }
+            //카드를 합해서 그만큼 1번 플레이어 이동
+            Card_Sum_and_Move(0);
         }
 
-        else if (gamemanager.instance.tempPlayer == gamemanager.instance.second_Player)
+        else if (gamemanager.instance.turn_count % 3 == 2)
         {
-            gamemanager.instance.player2 += gamemanager.instance.sum_card - 1;
-            gamemanager.instance.player2 %= 8;
-
-            if (gameboard[gamemanager.instance.player2].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
-            {
-                for (int i = 0; i < gameboard[gamemanager.instance.player2].trigger_a; i++)
-                {
-                    //다시 초기화 해줌
-                    gameboard[gamemanager.instance.player2].money /= 2;
-                }
-                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                gameboard[gamemanager.instance.player2].trigger_a = 0;
-            }
+            //카드를 합해서 그만큼 2번 플레이어 이동
+            Card_Sum_and_Move(1);
         }
 
-        else if (gamemanager.instance.tempPlayer == gamemanager.instance.third_Player)
+        else if (gamemanager.instance.turn_count % 3 == 0)
         {
-            gamemanager.instance.player3 += gamemanager.instance.sum_card - 1;
-            gamemanager.instance.player3 %= 8;
-
-            if (gameboard[gamemanager.instance.player3].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
-            {
-                for (int i = 0; i < gameboard[gamemanager.instance.player3].trigger_a; i++)
-                {
-                    //다시 초기화 해줌
-                    gameboard[gamemanager.instance.player3].money /= 2;
-                }
-                //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
-                gameboard[gamemanager.instance.player3].trigger_a = 0;
-            }
+            //카드를 합해서 그만큼 3번 플레이어 이동
+            Card_Sum_and_Move(2);
         }
 
+        //카드합을 0으로 초기화
         gamemanager.instance.sum_card = 0;
 
     //나중에 카드를 내는 함수, 말을 카드 수 만큼 이동하는 함수를 추가해서 여기에 넣어주면 될 것 같음
 }
+
+
+    //카드를 합해서 플레이어 이동하는 함수
+    void Card_Sum_and_Move(int n)
+    {
+        //이동, 현재 자리도 카운트 해야 하기 때문에 - 1을 하고, 보드 위치이기 때문에 %8해줬음
+        gamemanager.instance.player[n].player_pos += gamemanager.instance.sum_card - 1;
+        gamemanager.instance.player[n].player_pos %= 8;
+
+        if (gameboard[gamemanager.instance.player[n].player_pos].trigger_a != 0)         //자신이 밟은 칸의 밸류가 곱하기 되어있나 체크
+        {
+            for (int i = 0; i < gameboard[gamemanager.instance.player[n].player_pos].trigger_a; i++)
+            {
+                //다시 초기화 해줌
+                gameboard[gamemanager.instance.player[n].player_pos].money /= 2;
+            }
+            //자신이 밟은 칸의 밸류가 곱셈이 안 돼있다고 해줌
+            gameboard[gamemanager.instance.player[n].player_pos].trigger_a = 0;
+        }
+
+        //당도한 칸에서 해야할 것이 있는지 체크
+        Check_Cann(n);
+    }
+
+
 
     void TurnProgress()
     {

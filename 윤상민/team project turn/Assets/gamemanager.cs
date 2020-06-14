@@ -46,10 +46,6 @@ public class gamemanager : MonoBehaviour
     //플레이어 3명 배열로 선언
     public Player[] player = new Player[3];
 
-    //플레이어가 몇번째 칸에 있는지
-    public int player1;
-    public int player2;
-    public int player3;
     
 
     public GameObject tempPlayer;
@@ -68,9 +64,6 @@ public class gamemanager : MonoBehaviour
 
         gamemanager.instance.turn_count = 0;
 
-        gamemanager.instance.player1 = 0;
-        gamemanager.instance.player2 = 0;
-        gamemanager.instance.player3 = 0;
 
         //플레이어 초기화 함수
         Initialize_Player();
