@@ -22,19 +22,83 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    //--------------------------------------------------------------------------
+    //플레이어 구조체
+    public struct player
+    {
+        //플레이어가 어떤 칸에 있는지
+        public int player_pos;
+        //플레이어의 점수
+        public int player_money;
+        //플레이어가 감옥칸 밟았는지 검사하는 플래그
+        public bool is_prison;
+        //플레이어가 우주 여행칸 밟았는지 검사하는 플래그
+        public bool is_travel;
+    };
+    //--------------------------------------------------------------------------
+
+
+
+
     //ui를 받을곳
     public Text UI;
 
     //오브젝트 생성할 위치
     public Transform[]  spawnPositions;
 
-    //오브젝트의 원형 프리펩
-    public GameObject obj_L;
+    //-----------------------오브젝트의 원형 프리펩-----------------------------
+    public GameObject obj_L; //예시
+
+    //플레이어 오브젝트를 담고있는 변수
+    public GameObject first_Player;
+    public GameObject second_Player;
+    public GameObject third_Player;
+
+
+
+
+    //--------------------------------------------------------------------------
+
     //오브젝트의 원형 프리펩
     public GameObject obj_M;
+    //--------------------------------------------------------------------------
 
-    //점수 및 수치 저장하는 곳
-    private int[] Scores;
+
+
+    //------------------------점수 및 수치 저장하는 곳--------------------------
+    private int[] Scores; //예시
+
+    //게임 시작하고 현재 몇 번째 턴인지
+    public int turn_count;
+
+
+    //각 플레이어들이 낸 카드의 숫자
+    public int[] selectedNum = new int[3];
+    //카드 숫자 합
+    public int sum_card;
+
+
+    //한명이 카드를 선택하면 하나씩 올라감 3이 되면 모두 다 카드를 선택한 것임
+    public int cardturn = 0;
+
+
+    //플레이어가 어떤 칸에 있는지 -
+    public int[] player_pos;
+    //플레이어의 점수 -
+    public int[] player_money;
+
+
+    //플레이어가 감옥칸 밟았는지 검사하는 플래그 -
+    public bool[] is_prison;
+    //플레이어가 우주 여행칸 밟았는지 검사하는 플래그
+    public bool[] is_travel;
+
+
+    //턴 진행중인지 확인값
+    bool turnPros;
+    //--------------------------------------------------------------------------
+
+    public GameObject tempPlayer;   //???
 
     // Start is called before the first frame update
     void Start()

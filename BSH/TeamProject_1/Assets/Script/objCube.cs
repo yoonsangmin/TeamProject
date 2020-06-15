@@ -13,7 +13,7 @@ public class objCube : MonoBehaviourPun
 
     //------------------------------
 
-
+    
     private void FixedUpdate()
     {
         //방장이아니라면 바로 리턴, 플레이어가 다 차지 않았으면 바로 리턴
@@ -21,6 +21,8 @@ public class objCube : MonoBehaviourPun
         {
             return;
         }
+
+        
 
         //여기에 오브젝트 이동관련 넣기
         //---------------------------------
