@@ -104,9 +104,11 @@
     <Compile Include="Assets\script\loading.cs" />
     <Compile Include="Assets\script\loadname.cs" />
     <Compile Include="Assets\script\scene_load.cs" />
+    <Compile Include="Assets\script\select_card.cs" />
     <Compile Include="Assets\script\sound.cs" />
     <Compile Include="Assets\script\soundplay.cs" />
     <Compile Include="Assets\script\talkmanager.cs" />
+    <Compile Include="Assets\script\timerscript.cs" />
     <Compile Include="Assets\script\tutorial.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

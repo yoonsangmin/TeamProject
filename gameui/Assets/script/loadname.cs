@@ -16,7 +16,7 @@ public class loadname : MonoBehaviour
     public void storename()
     {
         thename = inputfield.GetComponent<Text>().text;
-        textdisplay.GetComponent<Text>().text = thename +  "님";
+        textdisplay.GetComponent<Text>().text = "LV 1   " + thename ;
     }
 
 
