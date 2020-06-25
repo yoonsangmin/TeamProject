@@ -11,6 +11,12 @@ TagManager:
   - c1
   - c2
   - c3
+  - 3Player_card
+  - 1Player_card
+  - 2Player_card
+  - K
+  - Q
+  - J
   layers:
   - Default
   - TransparentFX

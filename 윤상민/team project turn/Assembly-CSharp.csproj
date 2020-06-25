@@ -63,9 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Object\character\prefab\s.cs" />
     <Compile Include="Assets\cardsystem.cs" />
     <Compile Include="Assets\gamemanager.cs" />
     <Compile Include="Assets\playermove.cs" />
+    <Compile Include="Assets\script\Movecard.cs" />
+    <Compile Include="Assets\script\Player.cs" />
+    <Compile Include="Assets\script\gogo.cs" />
+    <Compile Include="Assets\script\ins_card.cs" />
+    <Compile Include="Assets\script\sangmin create code\Board.cs" />
+    <Compile Include="Assets\script\sangmin create code\Cardaaaaa.cs" />
+    <Compile Include="Assets\script\sangmin create code\Turn.cs" />
+    <Compile Include="Assets\script\sangmin create code\timer.cs" />
     <Compile Include="Assets\time.cs" />
     <Compile Include="Assets\turnsystem.cs" />
     <Reference Include="Unity.Timeline.Editor">

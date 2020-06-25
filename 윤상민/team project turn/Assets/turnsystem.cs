@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class turnsystem : MonoBehaviour
 {
-    //private int turn_count;
+    private int turn_count;
     //게임 시작하고 현재 몇 번째 턴인지
 
     //public GameObject first_Player;
