@@ -55,7 +55,7 @@ public class gogo : MonoBehaviour
                     if (transform.position == Player.instance.cann[(Player.instance.player[Turn.instance.turn_number % 3].player_pos) % 24].transform.position)
                     {
                         //3명일때 다 초기화 해줘야 함
-                        Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
+                        //Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
                         Player.instance.player[Turn.instance.turn_number % 3].is_moving = false;
 
 
@@ -121,7 +121,7 @@ public class gogo : MonoBehaviour
                 {
                     if (transform.position == Player.instance.cann[(Player.instance.player[Turn.instance.turn_number % 3].player_pos + 1) % 24].transform.position)
                     {
-                        Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
+                        //Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
                         Player.instance.player[Turn.instance.turn_number % 3].is_moving = false;
                         Player.instance.player[Turn.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[Turn.instance.turn_number % 3].player_pos / 3].money;
 
@@ -174,7 +174,7 @@ public class gogo : MonoBehaviour
                 {
                     if (transform.position == Player.instance.cann[(Player.instance.player[Turn.instance.turn_number % 3].player_pos + 2) % 24].transform.position)
                     {
-                        Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
+                        //Player.instance.player[Turn.instance.turn_number % 3].cardselectdone = false;
                         Player.instance.player[Turn.instance.turn_number % 3].is_moving = false;
                         Player.instance.player[Turn.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[Turn.instance.turn_number % 3].player_pos / 3].money;
 

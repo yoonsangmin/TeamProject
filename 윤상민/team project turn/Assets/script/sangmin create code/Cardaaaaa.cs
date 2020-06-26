@@ -56,4 +56,10 @@ public class Cardaaaaa : MonoBehaviour
             Turn.instance.turn_number--;
         }
     }
+
+    public void ClickCard4()
+    {
+        Player.instance.player[Player.instance.naaaaa].cardselectdone = true;
+        Player.instance.player[Player.instance.naaaaa].player_card = 1;
+    }
 }

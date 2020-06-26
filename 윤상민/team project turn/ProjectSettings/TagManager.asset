@@ -17,6 +17,18 @@ TagManager:
   - K
   - Q
   - J
+  - card1
+  - card2
+  - card3
+  - 1p_card1
+  - 1p_card2
+  - 1p_card3
+  - 2p_card1
+  - 2p_card2
+  - 2p_card3
+  - 3p_card1
+  - 3p_card2
+  - 3p_card3
   layers:
   - Default
   - TransparentFX

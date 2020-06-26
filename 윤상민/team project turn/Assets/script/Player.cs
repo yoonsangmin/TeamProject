@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     public Player_struct[] player = new Player_struct[3];
     public GameObject[] cann;
 
+
+    public int naaaaa;
     // Start is called before the first frame update
     void Awake()
     {

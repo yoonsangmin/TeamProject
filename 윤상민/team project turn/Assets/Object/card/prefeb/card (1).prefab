@@ -88,7 +88,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19482423828491293}
-  - component: {fileID: -2130135497750905784}
   m_Layer: 0
   m_Name: card (1)
   m_TagString: 3Player_card
@@ -111,18 +110,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2130135497750905784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3899676311538359822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0594a5986a212244e93c3fc897210296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  select_this_card: 0
-  fin_move: 0
-  select_what_number: 0
