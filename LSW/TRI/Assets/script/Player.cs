@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public GameObject[] player_model;
     public GameObject[] cann;
 
+    public bool jump;
+
     // Start is called before the first frame update
     void Awake() {
         instance = this;

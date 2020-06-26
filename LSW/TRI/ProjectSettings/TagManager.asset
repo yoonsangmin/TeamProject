@@ -7,6 +7,18 @@ TagManager:
   - 1Player_card
   - 2Player_card
   - 3Player_card
+  - SP1
+  - SP2
+  - SP3
+  - SP4
+  - SP5
+  - SP6
+  - SP7
+  - SP8
+  - PZ1
+  - PZ2
+  - PZ3
+  - PZ4
   layers:
   - Default
   - TransparentFX

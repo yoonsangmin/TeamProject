@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class gogo : MonoBehaviour
 {
+
+
     public int startcann = 0;
     public int nowcann = 3;
     public int gocann = 6;
-
+    
     bool aaaaa = false;
 
     // Start is called before the first frame update
@@ -48,12 +50,15 @@ public class gogo : MonoBehaviour
         //{
         //}
 
-        transform.position = Vector3.MoveTowards(transform.position, Player.instance.cann[(nowcann) % 24].transform.position, 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, Player.instance.cann[(nowcann) % 24].transform.position, 0.015f);
 
         if(gocann != nowcann)
         {
             if (transform.position == Player.instance.cann[(nowcann) % 24].transform.position)
             {
+
+                Player.instance.jump = true;
+
                 Debug.Log("asdasd");
 
                 startcann += 3;
