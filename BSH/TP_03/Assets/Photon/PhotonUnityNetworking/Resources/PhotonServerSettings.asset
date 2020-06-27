@@ -27,7 +27,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: kr
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -38,6 +38,29 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RPCUpdateCard
+  - RPCUpdateMoveCard
+  - RPCtttttt
+  - RPC_Player
+  - RPCUpdateCard_1
+  - RPCUpdateCard_2
+  - RPCUpdateCard_3
+  - Click_1
+  - Click_2
+  - Click_3
+  - RPCcardselectdone
+  - RPCdelay
+  - RPCdelay_I
+  - RPCplayer_card
+  - RPCrotate_flag_F
+  - RPCrotate_flag_T
+  - RPCrotation
+  - RPCrotation_I
+  - RPCcardobj_P
+  - RPCaaaaaa_F
+  - RPCaaaaaa_T
+  - RPCccccc_T
+  - RPCcccccc_F
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1

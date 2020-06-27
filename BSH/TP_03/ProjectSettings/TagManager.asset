@@ -11,6 +11,21 @@ TagManager:
   - Bullet
   - 2Player_card
   - 1Player_card
+  - card_p1
+  - card_p2
+  - card_p3
+  - card_p4
+  - card_p5
+  - card_p6
+  - 1Player_card_1
+  - 1Player_card_2
+  - 1Player_card_3
+  - 2Player_card_1
+  - 2Player_card_2
+  - 2Player_card_3
+  - 3Player_card_1
+  - 3Player_card_2
+  - 3Player_card_3
   layers:
   - Default
   - TransparentFX

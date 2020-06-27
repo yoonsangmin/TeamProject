@@ -28,7 +28,10 @@ public class gogo : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (Player.instance.player[Turn.instance.turn_number % 3].cardselectdone) //카드 셀렉트가 세명다 됐을 때로 바꿔야됨
+        var localPleyerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+
+
+        if (Player.instance.player[0].cardselectdone && Player.instance.player[1].cardselectdone && Player.instance.player[2].cardselectdone) //카드 셀렉트가 세명다 됐을 때로 바꿔야됨
         {
             if (Turn.instance.turn_number % 3 == 0 && gameObject.tag == "J")
             {

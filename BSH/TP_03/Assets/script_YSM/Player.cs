@@ -46,6 +46,9 @@ public class Player : MonoBehaviourPunCallbacks
     public Player_struct[] player = new Player_struct[3];
     public GameObject[] cann;
 
+    public int[] aaaaaaaaaaaa = new int[3];
+    public bool[] bbbb = new bool[3];
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,21 +57,40 @@ public class Player : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        SpawnObj_L();
 
-        //보드 위에서의 위치 0으로 초기화
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_pos = 0;
-        //각 플레이어의 점수 초기화 몇으로 해야하는지 처음 들고 시작하는 돈
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_money = 10;
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_card = 0;
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].cardselectdone = false;
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_onstart = false;
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_moving = false;
+        //SpawnObj_L();
 
-        //감옥칸이 아님
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_prison = false;
-        //여행칸이 아님
-        player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_travel = false;
+        //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        //{
+        //    photonView.RPC("RPC_Player", RpcTarget.All, 0);
+        //}
+        //else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        //{
+        //    photonView.RPC("RPC_Player", RpcTarget.All, 1);
+        //}
+        //else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
+        //{
+        //    photonView.RPC("RPC_Player", RpcTarget.All, 2);
+        //}
+
+
+
+        ////보드 위에서의 위치 0으로 초기화
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_pos = 0;
+        ////각 플레이어의 점수 초기화 몇으로 해야하는지 처음 들고 시작하는 돈
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_money = 10;
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].player_card = 0;
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].cardselectdone = false;
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_onstart = false;
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_moving = false;
+
+        ////감옥칸이 아님
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_prison = false;
+        ////여행칸이 아님
+        //player[PhotonNetwork.LocalPlayer.ActorNumber - 1].is_travel = false;
+
+
+        //aaaaaaaaaaaa[PhotonNetwork.LocalPlayer.ActorNumber - 1] += 4;
 
         //방장 마스터클라이언트 에서만 생성할 오브젝트 (게임에 하나만 있어야하는 오브젝트 ex. 공)
         if (PhotonNetwork.IsMasterClient)
@@ -76,6 +98,54 @@ public class Player : MonoBehaviourPunCallbacks
             
         }
     }
+
+    private void Update()
+    {
+        if (PhotonNetwork.PlayerList.Length < 2)
+        {
+            return;
+        }
+
+        //Debug.Log("이런");
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && !bbbb[PhotonNetwork.LocalPlayer.ActorNumber -1])
+        {
+            //Debug.Log("이런_1");
+            photonView.RPC("RPC_Player", RpcTarget.All, 0);
+        }
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && !bbbb[PhotonNetwork.LocalPlayer.ActorNumber - 1])
+        {
+            //Debug.Log("이런_2");
+            photonView.RPC("RPC_Player", RpcTarget.All, 1);
+        }
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && !bbbb[PhotonNetwork.LocalPlayer.ActorNumber - 1])
+        {
+            //Debug.Log("이런_3");
+            photonView.RPC("RPC_Player", RpcTarget.All, 2);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_Player(int num)
+    {
+        //보드 위에서의 위치 0으로 초기화
+        player[num].player_pos = 0;
+        //각 플레이어의 점수 초기화 몇으로 해야하는지 처음 들고 시작하는 돈
+        player[num].player_money = 10;
+        player[num].player_card = 0;
+        player[num].cardselectdone = false;
+        player[num].is_onstart = false;
+        player[num].is_moving = false;
+
+        //감옥칸이 아님
+        player[num].is_prison = false;
+        //여행칸이 아님
+        player[num].is_travel = false;
+
+
+        aaaaaaaaaaaa[num] += 4;
+        bbbb[num] = true; 
+    }
+
 
     //오브젝트 생성 함수
     private void SpawnObj_L()
@@ -89,5 +159,4 @@ public class Player : MonoBehaviourPunCallbacks
         //무조건 리소스 파일 안에있는 이름을 받아서 생성
         PhotonNetwork.Instantiate(playerprefab[localPleyerIndex].name, spawnPosition.transform.position, spawnPosition.transform.rotation);
     }
-
 }
