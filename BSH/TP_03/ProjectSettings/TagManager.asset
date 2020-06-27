@@ -26,6 +26,30 @@ TagManager:
   - 3Player_card_1
   - 3Player_card_2
   - 3Player_card_3
+  - 1Cann_0
+  - 1Cann_1
+  - 1Cann_2
+  - 1Cann_3
+  - 1Cann_4
+  - 1Cann_5
+  - 1Cann_6
+  - 1Cann_7
+  - 2Cann_0
+  - 2Cann_1
+  - 2Cann_2
+  - 2Cann_3
+  - 2Cann_4
+  - 2Cann_5
+  - 2Cann_6
+  - 2Cann_7
+  - 3Cann_0
+  - 3Cann_1
+  - 3Cann_2
+  - 3Cann_3
+  - 3Cann_4
+  - 3Cann_5
+  - 3Cann_6
+  - 3Cann_7
   layers:
   - Default
   - TransparentFX

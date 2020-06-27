@@ -62,8 +62,6 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
 
     public void ClickCard4()
     {
-        //var localPleyerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-
         Debug.Log("1111111");
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
@@ -127,21 +125,21 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 1;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 1;
             }
             else if (num == 2)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 1;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 1;
             }
             else if (num == 3)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 1;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 1;
             }
         }
     }
@@ -156,21 +154,21 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 2;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 2;
             }
             else if (num == 2)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 2;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 2;
             }
             else if (num == 3)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 2;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 2;
             }
         }
     }
@@ -185,21 +183,21 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 3;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 3;
             }
             else if (num == 2)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 3;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 3;
             }
             else if (num == 3)
             {
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 3;
 
-                Player.instance.aaaaaaaaaaaa[num - 1] += 4;
+                Player.instance.sum_card += 3;
             }
         }
     }

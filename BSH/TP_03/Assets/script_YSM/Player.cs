@@ -49,6 +49,8 @@ public class Player : MonoBehaviourPunCallbacks
     public int[] aaaaaaaaaaaa = new int[3];
     public bool[] bbbb = new bool[3];
 
+    public int sum_card;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -58,8 +60,32 @@ public class Player : MonoBehaviourPunCallbacks
     void Start()
     {
 
-        //SpawnObj_L();
+        cann[0] = GameObject.FindWithTag("1Cann_0");
+        cann[1] = GameObject.FindWithTag("2Cann_0");
+        cann[2] = GameObject.FindWithTag("3Cann_0");
+        cann[3] = GameObject.FindWithTag("1Cann_1");
+        cann[4] = GameObject.FindWithTag("2Cann_1");
+        cann[5] = GameObject.FindWithTag("3Cann_1");
+        cann[6] = GameObject.FindWithTag("1Cann_2");
+        cann[7] = GameObject.FindWithTag("2Cann_2");
+        cann[8] = GameObject.FindWithTag("3Cann_2");
+        cann[9] = GameObject.FindWithTag("1Cann_3");
+        cann[10] = GameObject.FindWithTag("2Cann_3");
+        cann[11] = GameObject.FindWithTag("3Cann_3");
+        cann[12] = GameObject.FindWithTag("1Cann_4");
+        cann[13] = GameObject.FindWithTag("2Cann_4");
+        cann[14] = GameObject.FindWithTag("3Cann_4");
+        cann[15] = GameObject.FindWithTag("1Cann_5");
+        cann[16] = GameObject.FindWithTag("2Cann_5");
+        cann[17] = GameObject.FindWithTag("3Cann_5");
+        cann[18] = GameObject.FindWithTag("1Cann_6");
+        cann[19] = GameObject.FindWithTag("2Cann_6");
+        cann[20] = GameObject.FindWithTag("3Cann_6");
+        cann[21] = GameObject.FindWithTag("1Cann_7");
+        cann[22] = GameObject.FindWithTag("2Cann_7");
+        cann[23] = GameObject.FindWithTag("3Cann_7");
 
+      
         //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         //{
         //    photonView.RPC("RPC_Player", RpcTarget.All, 0);
@@ -95,8 +121,9 @@ public class Player : MonoBehaviourPunCallbacks
         //방장 마스터클라이언트 에서만 생성할 오브젝트 (게임에 하나만 있어야하는 오브젝트 ex. 공)
         if (PhotonNetwork.IsMasterClient)
         {
-            
+            SpawnObj_L();
         }
+
     }
 
     private void Update()
@@ -150,13 +177,10 @@ public class Player : MonoBehaviourPunCallbacks
     //오브젝트 생성 함수
     private void SpawnObj_L()
     {
-        //로컬 플레이어의 ActorNumber 가져오기 1번부터 시작해서 -1 해준것
-        var localPleyerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        //오브젝트 위치
-        var spawnPosition = cann[localPleyerIndex];
-
         //내꺼에 오브젝트 생성 생성 후 다른 컴퓨터에서도 복제본을 생성
         //무조건 리소스 파일 안에있는 이름을 받아서 생성
-        PhotonNetwork.Instantiate(playerprefab[localPleyerIndex].name, spawnPosition.transform.position, spawnPosition.transform.rotation);
+        PhotonNetwork.Instantiate(playerprefab[0].name, cann[0].transform.position, cann[0].transform.rotation);
+        PhotonNetwork.Instantiate(playerprefab[1].name, cann[1].transform.position, cann[1].transform.rotation);
+        PhotonNetwork.Instantiate(playerprefab[2].name, cann[2].transform.position, cann[2].transform.rotation);
     }
 }

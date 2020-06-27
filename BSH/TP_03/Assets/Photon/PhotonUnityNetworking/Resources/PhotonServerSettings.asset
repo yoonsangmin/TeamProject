@@ -33,22 +33,20 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - Click_1
+  - Click_2
+  - Click_3
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - RPCUpdateCard
-  - RPCUpdateMoveCard
-  - RPCtttttt
   - RPC_Player
-  - RPCUpdateCard_1
-  - RPCUpdateCard_2
-  - RPCUpdateCard_3
-  - Click_1
-  - Click_2
-  - Click_3
+  - RPCaaaaaa_F
+  - RPCaaaaaa_T
   - RPCcardselectdone
+  - RPCccccc_T
+  - RPCcccccc_F
   - RPCdelay
   - RPCdelay_I
   - RPCplayer_card
@@ -56,11 +54,19 @@ MonoBehaviour:
   - RPCrotate_flag_T
   - RPCrotation
   - RPCrotation_I
-  - RPCcardobj_P
-  - RPCaaaaaa_F
-  - RPCaaaaaa_T
-  - RPCccccc_T
-  - RPCcccccc_F
+  - RPCtttttt
+  - RPCUpdateCard_1
+  - RPCUpdateCard_2
+  - RPCUpdateCard_3
+  - RPCUpdateMoveCard
+  - RPCplayer_pos
+  - RPCis_moving_T
+  - RPCis_moving_F
+  - RPCdorara
+  - RPCdoara_F
+  - RPCdorara1_T
+  - RPCdorara2_T
+  - RPCdorara3_T
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

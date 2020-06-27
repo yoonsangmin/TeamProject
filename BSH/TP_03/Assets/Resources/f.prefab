@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4573764860141122154}
   - component: {fileID: 2172891406332714604}
   - component: {fileID: 2208619490511704069}
+  - component: {fileID: 2471521103005172495}
   m_Layer: 0
   m_Name: f
   m_TagString: Untagged
@@ -99,10 +100,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb7dca201e498d4b97ed1d84ad1d041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerprefab: []
-  cann: []
+  playerprefab:
+  - {fileID: 5149472329070415759, guid: 085305cb63c402743bac387dde47b4e0, type: 3}
+  - {fileID: 873619302911101537, guid: 5dfe41b3021e2634f9887230e59a9d84, type: 3}
+  - {fileID: 2429753669936862460, guid: 4f125178dd5ad414793d78941a510ac7, type: 3}
+  cann:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   aaaaaaaaaaaa: 000000000000000000000000
   bbbb: 000000
+  sum_card: 0
 --- !u!114 &2172891406332714604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +195,26 @@ MonoBehaviour:
   rotate_flag: 000000
   aaaaaa: 000000
   cccccc: 000000
+--- !u!114 &2471521103005172495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039427244740201315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e016e5795514d4f9edff14cb1e2fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startcann: 000000000100000002000000
+  nowcann: 030000000400000005000000
+  dorara1: 0
+  dorara2: 0
+  dorara3: 0
+  turn_number: 0
+  playerchar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  momoney: 0

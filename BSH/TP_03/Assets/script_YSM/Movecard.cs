@@ -128,23 +128,15 @@ public class Movecard : MonoBehaviourPunCallbacks
 
         if (rotate_flag[0] == true && rotate_flag[1] == true)// && aaaaaa[2] == true)     //모두 다 냈을 때로 바꿔줘야 함
         {
-
-
-            //rotate_flag[localPleyerIndex] = true;
-
-
-            //Debug.Log("rotate_flag를 T로 ");
-
-            //photonView.RPC("RPCrotate_flag_T", RpcTarget.All, 0);
-            //photonView.RPC("RPCrotate_flag_T", RpcTarget.All, 1);
-
-
-            //photonView.RPC("RPCrotate_flag_T", RpcTarget.All, localPleyerIndex);
-
-
-
             photonView.RPC("RPCaaaaaa_T", RpcTarget.All, localPleyerIndex);
-            //photonView.RPC("RPCaaaaaa_T", RpcTarget.All, 1);
+
+
+
+
+            //플레이어 포즈 바꾸기
+            photonView.RPC("RPCplayer_pos", RpcTarget.All);
+
+            
         }
 
 
@@ -160,14 +152,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[0] > 0.0f)
                         {
-                            ins_card.instance.cardobj[0 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[0] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[0 * 3].transform.eulerAngles = new Vector3(0, 0, rotation[0]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 0);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[0 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[0 * 3].transform.eulerAngles = new Vector3(0 , 0 , 0);
                         }
                     }
                 }
@@ -177,14 +169,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[0] > 0.0f)
                         {
-                            ins_card.instance.cardobj[0 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[0] + Quaternion.identity.z);
+                            ins_card.instance.cardobj[0 * 3 + 1].transform.eulerAngles = new Vector3(0, 0 , rotation[0]);
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 0);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[0 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[0 * 3 + 1].transform.eulerAngles = new Vector3(0 , 0 , 0 );
                         }
                     }
                 }
@@ -194,17 +186,19 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[0] > 0.0f)
                         {
-                            ins_card.instance.cardobj[0 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[0] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[0 * 3 + 2].transform.eulerAngles = new Vector3(0 , 0 , rotation[0]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 0);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[0 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[0 * 3 + 2].transform.eulerAngles = new Vector3(0 , 0 , 0 );
                         }
                     }
                 }
+
+
 
 
                 if (Player.instance.player[1].player_card == 1)
@@ -213,14 +207,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[1] > 0.0f)
                         {
-                            ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[1] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0 , 90.0f, rotation[1]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 1);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0 , 90.0f, 0);
                         }
                     }
                 }
@@ -230,14 +224,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[1] > 0.0f)
                         {
-                            ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[1] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0, 90.0f, rotation[1]);
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 1);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0, 90.0f, 0);
                         }
                     }
                 }
@@ -247,17 +241,21 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[1] > 0.0f)
                         {
-                            ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[1] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0, 90.0f, rotation[1]);
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 1);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0, 90.0f, 0);
                         }
                     }
                 }
+
+
+
+
 
                 if (Player.instance.player[2].player_card == 1)
                 {
@@ -265,14 +263,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[2] > 0.0f)
                         {
-                            ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[2] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0 , -90.0f, rotation[2]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 2);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0 , -90.0f, 0 );
                         }
                     }
                 }
@@ -282,14 +280,14 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[2] > 0.0f)
                         {
-                            ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[2] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0, -90.0f, rotation[2]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 2);
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0, -90.0f, 0);
                         }
                     }
                 }
@@ -299,18 +297,19 @@ public class Movecard : MonoBehaviourPunCallbacks
                     {
                         if (rotation[2] > 0.0f)
                         {
-                            ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, rotation[2] + Quaternion.identity.z);  //로테이션이 이상함
+                            ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0, -90.0f, rotation[2]);  //로테이션이 이상함
                             //rotation[localPleyerIndex] -= 1.0f;
                             photonView.RPC("RPCrotation", RpcTarget.All, 2 );
                         }
                         else
                         {
                             Debug.Log("@@@");
-                            ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0 + Quaternion.identity.x, 0 + Quaternion.identity.y, 0 + Quaternion.identity.z);
+                            ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0, -90.0f, 0);
                         }
                     }
                 }
             }
+
         }
 
 
@@ -438,6 +437,8 @@ public class Movecard : MonoBehaviourPunCallbacks
             {
                 ins_card.instance.cardobj[0].transform.position = ins_card.instance.card_cann[0].transform.position;
 
+                ins_card.instance.cardobj[0].transform.eulerAngles = new Vector3(0, 0, 180.0f);
+
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -445,6 +446,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara1_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 0 && Player.instance.player[0].player_card == 2)
@@ -461,6 +465,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             {
                 ins_card.instance.cardobj[1].transform.position = ins_card.instance.card_cann[0].transform.position;
 
+                ins_card.instance.cardobj[1].transform.eulerAngles = new Vector3(0, 0, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -468,6 +473,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara1_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 0 && Player.instance.player[0].player_card == 3)
@@ -484,6 +492,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             {
                 ins_card.instance.cardobj[2].transform.position = ins_card.instance.card_cann[0].transform.position;
 
+                ins_card.instance.cardobj[2].transform.eulerAngles = new Vector3(0, 0, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -491,6 +500,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara1_T", RpcTarget.All);
             }
         }
 
@@ -507,7 +519,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[1] <= 0.0f)
             {
                 ins_card.instance.cardobj[1 * 3].transform.position = ins_card.instance.card_cann[1].transform.position;
-
+                ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0, 90.0f, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -515,6 +527,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara2_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 1 && Player.instance.player[1].player_card == 2)
@@ -530,7 +545,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[1] <= 0.0f)
             {
                 ins_card.instance.cardobj[1 * 3 + 1].transform.position = ins_card.instance.card_cann[1].transform.position;
-
+                ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0, 90.0f, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -538,6 +553,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara2_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 1 && Player.instance.player[1].player_card == 3)
@@ -553,7 +571,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[1] <= 0.0f)
             {
                 ins_card.instance.cardobj[1 * 3 + 2].transform.position = ins_card.instance.card_cann[1].transform.position;
-
+                ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0, 90.0f, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -561,6 +579,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                photonView.RPC("RPCdorara2_T", RpcTarget.All);
             }
         }
 
@@ -577,7 +598,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[2] <= 0.0f)
             {
                 ins_card.instance.cardobj[2 * 3].transform.position = ins_card.instance.card_cann[2].transform.position;
-
+                ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0, -90.0f, 180.0f);
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
                 photonView.RPC("RPCplayer_card", RpcTarget.All, localPleyerIndex);
@@ -585,6 +606,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                //photonView.RPC("RPCdorara3_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 2 && Player.instance.player[2].player_card == 2)
@@ -600,6 +624,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[2] <= 0.0f)
             {
                 ins_card.instance.cardobj[2 * 3 + 1].transform.position = ins_card.instance.card_cann[2].transform.position;
+                ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0, -90.0f, 180.0f);
 
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
@@ -608,6 +633,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                //photonView.RPC("RPCdorara3_T", RpcTarget.All);
             }
         }
         else if (localPleyerIndex == 2 && Player.instance.player[2].player_card == 3)
@@ -623,6 +651,7 @@ public class Movecard : MonoBehaviourPunCallbacks
             else if (rotate_flag[0] && rotate_flag[1] && delay[2] <= 0.0f)
             {
                 ins_card.instance.cardobj[2 * 3 + 2].transform.position = ins_card.instance.card_cann[2].transform.position;
+                ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0, -90.0f, 180.0f);
 
 
                 //Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
@@ -631,6 +660,9 @@ public class Movecard : MonoBehaviourPunCallbacks
 
                 //elay[localPleyerIndex] = 180.0f;
                 photonView.RPC("RPCdelay_I", RpcTarget.All, localPleyerIndex);
+
+                //dorara
+                //photonView.RPC("RPCdorara3_T", RpcTarget.All);
             }
         }
 
@@ -698,8 +730,43 @@ public class Movecard : MonoBehaviourPunCallbacks
             photonView.RPC("RPCaaaaaa_F", RpcTarget.All, 1);
             //photonView.RPC("RPCaaaaaa_F", RpcTarget.All, 2);
 
+
+
+           
+
         }
 
+    }
+
+
+    [PunRPC]
+    public void RPCdorara1_T()
+    {
+        gogo.instance.dorara1 = true;
+    }
+
+    [PunRPC]
+    public void RPCdorara2_T()
+    {
+        gogo.instance.dorara2 = true;
+    }
+
+    [PunRPC]
+    public void RPCdorara3_T()
+    {
+        gogo.instance.dorara3 = true;
+    }
+
+    [PunRPC]
+    public void RPCplayer_pos()
+    {
+        if(Player.instance.sum_card != 0)
+        {
+            Player.instance.player[gogo.instance.turn_number % 3].player_pos += (Player.instance.sum_card - 1);
+            Player.instance.sum_card = 0;
+        }
+        //Debug.Log("adsfadsasdds123213213213543");
+        Debug.Log(Player.instance.player[gogo.instance.turn_number % 3].player_pos);
     }
 
     [PunRPC]
@@ -774,136 +841,6 @@ public class Movecard : MonoBehaviourPunCallbacks
     public void RPCcardselectdone(int num)
     {
         Player.instance.player[num].cardselectdone = false;
-    }
-
-
-
-    [PunRPC]
-    private void RPCUpdateMoveCard()
-    {
-        if (PhotonNetwork.PlayerList.Length < 3)
-        {
-            return;
-        }
-
-
-        var localPleyerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-
-        if (Player.instance.player[localPleyerIndex].cardselectdone)
-        {
-            if (localPleyerIndex == 0 && Player.instance.player[localPleyerIndex].player_card == 1)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3].transform.position, ins_card.instance.card_cann[0].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 0 && Player.instance.player[localPleyerIndex].player_card == 2)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position, ins_card.instance.card_cann[0].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 0 && Player.instance.player[localPleyerIndex].player_card == 3)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position, ins_card.instance.card_cann[0].transform.position, 0.1f);
-            }
-
-            if (localPleyerIndex == 1 && Player.instance.player[localPleyerIndex].player_card == 1)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3].transform.position, ins_card.instance.card_cann[1].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 1 && Player.instance.player[localPleyerIndex].player_card == 2)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position, ins_card.instance.card_cann[1].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 1 && Player.instance.player[localPleyerIndex].player_card == 3)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position, ins_card.instance.card_cann[1].transform.position, 0.1f);
-            }
-
-            if (localPleyerIndex == 2 && Player.instance.player[localPleyerIndex].player_card == 1)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3].transform.position, ins_card.instance.card_cann[2].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 2 && Player.instance.player[localPleyerIndex].player_card == 2)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 1].transform.position, ins_card.instance.card_cann[2].transform.position, 0.1f);
-            }
-            else if (localPleyerIndex == 2 && Player.instance.player[localPleyerIndex].player_card == 3)
-            {
-                ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position = Vector3.MoveTowards(ins_card.instance.cardobj[localPleyerIndex * 3 + 2].transform.position, ins_card.instance.card_cann[2].transform.position, 0.1f);
-            }
-        }
-
-        if (Player.instance.player[localPleyerIndex].cardselectdone)     //모두 다 냈을 때로 바꿔줘야 함
-        {
-            rotate_flag[localPleyerIndex] = true;
-        }
-
-
-        //회전
-        if (rotate_flag[0] && rotate_flag[1] && rotate_flag[2])
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (Player.instance.player[localPleyerIndex].player_card == i + 1)
-                {
-                    if (ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.position == ins_card.instance.card_cann[3 + localPleyerIndex].transform.position)    //card_cann정리해야함
-                    {
-                        if (rotation[localPleyerIndex] > 0.0f)
-                        {
-                            ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.eulerAngles = new Vector3(0, 0, rotation[localPleyerIndex]);
-                            rotation[localPleyerIndex] -= 1.0f;
-                        }
-                        else
-                        {
-                            ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.eulerAngles = new Vector3(0, 0, 0);
-
-                            rotate_flag[localPleyerIndex] = false;
-                        }
-                    }
-                }
-            }
-
-
-        }
-
-        //회전 후 딜레이
-        for (int i = 0; i < 3; i++)
-        {
-            if (Player.instance.player[localPleyerIndex].player_card == i + 1)
-            {
-                if (!rotate_flag[localPleyerIndex] && delay[localPleyerIndex] > 0.0f)
-                {
-                    if (ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.position == ins_card.instance.card_cann[3 + localPleyerIndex].transform.position)
-                    {
-                        delay[localPleyerIndex] -= 1.0f;
-                    }
-                }
-                else if (!rotate_flag[localPleyerIndex] && delay[localPleyerIndex] <= 0.0f)
-                {
-                    ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.position = ins_card.instance.card_cann[localPleyerIndex].transform.position;
-                    if (localPleyerIndex == 0)
-                    {
-                        ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.rotation = Quaternion.Euler(0f, 0.0f, 180f);
-                    }
-                    else if (localPleyerIndex == 1)
-                    {
-                        ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.rotation = Quaternion.Euler(0f, 90.0f, 180f);
-                    }
-                    else if (localPleyerIndex == 2)
-                    {
-                        ins_card.instance.cardobj[localPleyerIndex * 3 + i].transform.rotation = Quaternion.Euler(0f, -90.0f, 180f);
-                    }
-
-                    Player.instance.player[localPleyerIndex].player_card = 0; //카드 선택 해제
-
-                    delay[localPleyerIndex] = 180.0f;
-                }
-            }
-        }
-
-        if (Player.instance.player[localPleyerIndex].player_card == 0)          //모두 돌아서 false가 됐을 때
-        {
-            Player.instance.player[localPleyerIndex].cardselectdone = false;
-            rotation[localPleyerIndex] = 180.0f;
-        }
     }
 
 
