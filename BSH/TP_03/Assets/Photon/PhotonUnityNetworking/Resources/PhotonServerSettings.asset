@@ -27,19 +27,30 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: kr
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - b
+  - B_M
+  - C_1
+  - C_2
+  - C_3
   - Click_1
   - Click_2
   - Click_3
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
+  - EX
   - Fire
+  - P_money_plus
+  - P_Moving
+  - P_Moving_F
+  - P_P
+  - P_Prev
   - RespawnSpaceship
   - RPC_Player
   - RPCaaaaaa_F
@@ -49,44 +60,24 @@ MonoBehaviour:
   - RPCcccccc_F
   - RPCdelay
   - RPCdelay_I
+  - RPCdorara1_T
+  - RPCdorara2_T
+  - RPCdorara3_T
+  - RPCis_moving_F
+  - RPCis_moving_T
+  - RPCmovedone
   - RPCplayer_card
+  - RPCplayer_pos
   - RPCrotate_flag_F
   - RPCrotate_flag_T
   - RPCrotation
   - RPCrotation_I
+  - RPCsetboardmoney
   - RPCtttttt
   - RPCUpdateCard_1
   - RPCUpdateCard_2
   - RPCUpdateCard_3
-  - RPCUpdateMoveCard
-  - RPCplayer_pos
-  - RPCis_moving_T
-  - RPCis_moving_F
-  - RPCdorara
-  - RPCdoara_F
-  - RPCdorara1_T
-  - RPCdorara2_T
-  - RPCdorara3_T
-  - RPCmoneyplus
-  - RPCsetboardmoney
-  - RPCMoneyCheck
-  - RPCturnprogress
-  - RPCMoneyUpdate
-  - RPC_mmmmmmmmmm
-  - RPCmovedone
-  - b
-  - C_1
-  - C_2
-  - C_3
-  - EX
-  - P_P
-  - P_Moving
-  - P_Moving_F
-  - P_Prev
   - T_UP
-  - B_M
-  - P_money
-  - P_money_plus
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0

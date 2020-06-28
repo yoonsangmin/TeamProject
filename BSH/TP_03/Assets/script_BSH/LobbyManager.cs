@@ -13,6 +13,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public InputField NickNameInput;  //닉네임 넣는곳
     public Button joinButton; //서버로 들어가는 버튼
 
+    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
 
         joinButton.interactable = false;
+    }
+
+    private void Update()
+    {
+        
     }
 
     //마스터서버
@@ -62,6 +71,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.ConnectUsingSettings();//다시접속
         }
+
     }
 
     //방이 없을때
@@ -80,6 +90,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 
         PhotonNetwork.LoadLevel("SampleScene"); //게임할 씬으로 넘어가게하기
+
+
 
         // base.OnJoinedRoom();
     }

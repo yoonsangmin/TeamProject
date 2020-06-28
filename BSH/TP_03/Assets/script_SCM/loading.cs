@@ -43,5 +43,10 @@ public class loading : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void main()
+    {
+
+        SceneManager.LoadScene(2);
+    }
 
 }

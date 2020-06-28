@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
 
-public class select_card : MonoBehaviourPunCallbacks
+public class select_card : MonoBehaviour
 {
     public GameObject card;
 
@@ -16,11 +15,6 @@ public class select_card : MonoBehaviourPunCallbacks
 
     public void showcard()
     {
-        if (PhotonNetwork.PlayerList.Length < 3)
-        {
-            return;
-        }
-
         card.SetActive(true);
      
     }
