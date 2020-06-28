@@ -35,6 +35,9 @@ public class Board_Spawn : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+
+       
+
         if (BoardMoney[1] >= 0)
         {
             pz1.gameObject.GetComponent<TextMeshPro>().text = "+" + BoardMoney[1].ToString();

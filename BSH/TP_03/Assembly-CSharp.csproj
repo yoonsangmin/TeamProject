@@ -130,7 +130,6 @@
     <Compile Include="Assets\script_SCM\loadname.cs" />
     <Compile Include="Assets\script_SCM\objdata.cs" />
     <Compile Include="Assets\script_SCM\scene_load.cs" />
-    <Compile Include="Assets\script_SCM\select_card.cs" />
     <Compile Include="Assets\script_SCM\sound.cs" />
     <Compile Include="Assets\script_SCM\soundplay.cs" />
     <Compile Include="Assets\script_SCM\talkmanager.cs" />
@@ -140,7 +139,6 @@
     <Compile Include="Assets\script_YSM\Cardaaaaa.cs" />
     <Compile Include="Assets\script_YSM\Movecard.cs" />
     <Compile Include="Assets\script_YSM\Player.cs" />
-    <Compile Include="Assets\script_YSM\Scooooore.cs" />
     <Compile Include="Assets\script_YSM\Turn.cs" />
     <Compile Include="Assets\script_YSM\gogo.cs" />
     <Compile Include="Assets\script_YSM\ins_card.cs" />
@@ -153,6 +151,8 @@
     <Compile Include="Assets\scrpit\Card_Spawn.cs" />
     <Compile Include="Assets\scrpit\Player_Move.cs" />
     <Compile Include="Assets\scrpit\Player_Spawn.cs" />
+    <Compile Include="Assets\scrpit\Scooooore.cs" />
+    <Compile Include="Assets\scrpit\select_card.cs" />
     <Compile Include="Assets\time.cs" />
     <Compile Include="Assets\turnsystem.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

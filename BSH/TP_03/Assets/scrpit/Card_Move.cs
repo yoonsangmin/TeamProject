@@ -7,6 +7,11 @@ public class Card_Move : MonoBehaviourPunCallbacks
 {
     void Update()
     {
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
+
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             if (Card_Select.instance.select_num[0] == 1 && gameObject == Card_Spawn.instance.Card_Obj[0])
@@ -19,7 +24,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 0);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -44,7 +49,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 0);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -68,7 +73,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 0);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[0])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -101,7 +106,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 1);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -126,7 +131,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                 }
 
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -151,7 +156,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                 }
 
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[1])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -179,7 +184,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 2);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -203,7 +208,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 2);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -227,7 +232,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     photonView.RPC("C_1", RpcTarget.All, 2);
                 }
 
-                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
+                if (Card_Select.instance.Card_Do[0] && Card_Select.instance.Card_Do[1] && Card_Select.instance.Card_Do[2] && !Card_Select.instance.Card_EX[2])  //DO가 다 참일때
                 {
                     if (transform.rotation.z > 0)
                     {
@@ -248,7 +253,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
 
 
 
-        if (Card_Select.instance.Card_EX[0] && Card_Select.instance.Card_EX[1]) //다 참일때
+        if (Card_Select.instance.Card_EX[0] && Card_Select.instance.Card_EX[1] && Card_Select.instance.Card_EX[2]) //다 참일때
         {
             //Do변경
             photonView.RPC("C_2", RpcTarget.All, 0);
@@ -257,9 +262,10 @@ public class Card_Move : MonoBehaviourPunCallbacks
 
 
             //몇번째 턴일때
-          
             //카드 선택한 수 포지션에 추가
-            photonView.RPC("P_P", RpcTarget.All, Board_Spawn.instance.Turn % 3, Card_Select.instance.select_num[0] + Card_Select.instance.select_num[1] + Card_Select.instance.select_num[2] - 1);
+            //photonView.RPC("P_P", RpcTarget.All, Board_Spawn.instance.Turn % 3, Card_Select.instance.select_num[0] + Card_Select.instance.select_num[1] + Card_Select.instance.select_num[2] - 1);
+            Player_Spawn.instance.Player_Position[Board_Spawn.instance.Turn % 3] += (Card_Select.instance.select_num[0] + Card_Select.instance.select_num[1] + Card_Select.instance.select_num[2] - 1);
+            Player_Spawn.instance.Player_Position[Board_Spawn.instance.Turn % 3] %= 8;
 
             //플레이어 이동 시작할때 키는거
             photonView.RPC("P_Moving", RpcTarget.All, true);

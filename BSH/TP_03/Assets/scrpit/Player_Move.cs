@@ -8,6 +8,12 @@ public class Player_Move : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
+
+
         if (Player_Spawn.instance.Player_MovingDo)
         {
             if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
@@ -15,8 +21,8 @@ public class Player_Move : MonoBehaviourPunCallbacks
                 if (gameObject == Player_Spawn.instance.Player_Obj[0] && Board_Spawn.instance.Turn % 3 == 0)
                 {
                     //0번플레이어 이동
-                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[0] + 3].transform.position, 0.1f);
-                    if(transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[0] + 3].transform.position)       //이동 중일 떄
+                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[0]].transform.position, 0.1f);
+                    if(transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[0]].transform.position)       //이동 중일 떄
                     {
                         photonView.RPC("P_Prev", RpcTarget.All, 0);     //현재위치 업데이트
                     }
@@ -34,8 +40,8 @@ public class Player_Move : MonoBehaviourPunCallbacks
                 if (gameObject == Player_Spawn.instance.Player_Obj[1] && Board_Spawn.instance.Turn % 3 == 1)
                 {
                     //0번플레이어 이동
-                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[1] + 3].transform.position, 0.1f);
-                    if (transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[1] + 3].transform.position)       //이동 중일 떄
+                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[1]].transform.position, 0.1f);
+                    if (transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[1]].transform.position)       //이동 중일 떄
                     {
                         photonView.RPC("P_Prev", RpcTarget.All, 1);     //현재위치 업데이트
                     }
@@ -52,8 +58,8 @@ public class Player_Move : MonoBehaviourPunCallbacks
                 if (gameObject == Player_Spawn.instance.Player_Obj[2] && Board_Spawn.instance.Turn % 3 == 2)
                 {
                     //0번플레이어 이동
-                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[2] + 3].transform.position, 0.1f);
-                    if (transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[2] + 3].transform.position)       //이동 중일 떄
+                    transform.position = Vector3.MoveTowards(transform.position, Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[2]].transform.position, 0.1f);
+                    if (transform.position == Player_Spawn.instance.PLayer_Cann[Player_Spawn.instance.Player_Previous_Position[2]].transform.position)       //이동 중일 떄
                     {
                         photonView.RPC("P_Prev", RpcTarget.All, 2);     //현재위치 업데이트
                     }

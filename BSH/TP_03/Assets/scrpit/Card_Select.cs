@@ -22,6 +22,12 @@ public class Card_Select : MonoBehaviourPunCallbacks
 
     public void Click_1()
     {
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
+
+
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             photonView.RPC("b", RpcTarget.All, 0, 1);
@@ -37,6 +43,11 @@ public class Card_Select : MonoBehaviourPunCallbacks
     }
     public void Click_2()
     {
+
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             photonView.RPC("b", RpcTarget.All, 0, 2);
@@ -52,6 +63,11 @@ public class Card_Select : MonoBehaviourPunCallbacks
     }
     public void Click_3()
     {
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
+
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             photonView.RPC("b", RpcTarget.All, 0, 3);
