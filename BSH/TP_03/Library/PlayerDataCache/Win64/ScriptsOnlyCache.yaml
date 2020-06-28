@@ -6,10 +6,11 @@ ScriptsOnlyBuild:
     - LobbyManager
     - Movecard
     - Player
+    - Scooooore
+    - TableNumUpdate
     - Turn
     - a
     - b
-    - c
     - fading
     - gogo
     - healthscripit
@@ -20,8 +21,8 @@ ScriptsOnlyBuild:
     - soundplay
     - talkmanager
     - timer
-    - timerscript
     - tutorial
+    - wincheck
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -46,6 +47,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -124,6 +126,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11354}
     - Class: 114
       Script: {instanceID: 11366}
+    - Class: 114
+      Script: {instanceID: 11392}
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
@@ -260,8 +264,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 11270}
-    - Class: 114
       Script: {instanceID: 11280}
     - Class: 114
       Script: {instanceID: 11392}
@@ -276,8 +278,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 11954}
-    - Class: 114
       Script: {instanceID: 12172}
     - Class: 114
       Script: {instanceID: 12200}
@@ -290,15 +290,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12444}
     - Class: 114
+      Script: {instanceID: 12714}
+    - Class: 114
       Script: {instanceID: 12726}
     - Class: 114
       Script: {instanceID: 13052}
+    - Class: 114
+      Script: {instanceID: 13372}
     - Class: 114
       Script: {instanceID: 13430}
     - Class: 114
       Script: {instanceID: 13434}
     - Class: 114
       Script: {instanceID: 13514}
+    - Class: 114
+      Script: {instanceID: 45162}
+    - Class: 114
+      Script: {instanceID: 83126}
+    - Class: 114
+      Script: {instanceID: 126390}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1374,7 +1384,7 @@ ScriptsOnlyBuild:
     className: Cluster
   - hash:
       serializedVersion: 2
-      Hash: a7536376de06b561bdc20eebc92ffdd5
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Turn
@@ -2026,6 +2036,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: e1af8e3d8ac26ba0587bbd1a6c78c871
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Scooooore
+  - hash:
+      serializedVersion: 2
+      Hash: b3f634047412ef9971ce759d08eda146
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TableNumUpdate
+  - hash:
+      serializedVersion: 2
+      Hash: c6a0d7d0d611bae0e2c68d01d18e2606
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: wincheck
   platform: 19
   scenePathNames:
   - Assets/Scenes_SCM/main.unity

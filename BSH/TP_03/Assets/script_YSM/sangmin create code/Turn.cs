@@ -9,7 +9,7 @@ public class Turn : MonoBehaviour
     
     
 
-    public int card_sum;        //플레이어들이 선택한 카드들의 합
+
 
     private void Awake()
     {

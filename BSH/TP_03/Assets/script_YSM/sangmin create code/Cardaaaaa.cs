@@ -62,8 +62,6 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
 
     public void ClickCard4()
     {
-        Debug.Log("1111111");
-
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             Debug.Log("플레이어 1 카드 1");
@@ -120,8 +118,6 @@ public class Cardaaaaa : MonoBehaviourPunCallbacks
         {
             if (num == 1)
             {
-                Debug.Log("일일일일");
-
                 Player.instance.player[num - 1].cardselectdone = true;
                 Player.instance.player[num - 1].player_card = 1;
 

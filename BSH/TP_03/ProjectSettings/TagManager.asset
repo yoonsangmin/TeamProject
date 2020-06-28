@@ -50,6 +50,12 @@ TagManager:
   - 3Cann_5
   - 3Cann_6
   - 3Cann_7
+  - PZ1
+  - PZ2
+  - PZ4
+  - PZ3
+  - winpanel
+  - losepanel
   layers:
   - Default
   - TransparentFX

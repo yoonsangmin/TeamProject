@@ -15,6 +15,8 @@ public class Movecard : MonoBehaviourPunCallbacks
     public bool[] aaaaaa;
     public bool[] cccccc;
 
+    bool previousmoving;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,7 +160,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[0 * 3].transform.eulerAngles = new Vector3(0 , 0 , 0);
                         }
                     }
@@ -175,7 +176,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[0 * 3 + 1].transform.eulerAngles = new Vector3(0 , 0 , 0 );
                         }
                     }
@@ -192,7 +192,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[0 * 3 + 2].transform.eulerAngles = new Vector3(0 , 0 , 0 );
                         }
                     }
@@ -213,7 +212,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[1 * 3].transform.eulerAngles = new Vector3(0 , 90.0f, 0);
                         }
                     }
@@ -230,7 +228,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[1 * 3 + 1].transform.eulerAngles = new Vector3(0, 90.0f, 0);
                         }
                     }
@@ -247,7 +244,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[1 * 3 + 2].transform.eulerAngles = new Vector3(0, 90.0f, 0);
                         }
                     }
@@ -269,7 +265,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[2 * 3].transform.eulerAngles = new Vector3(0 , -90.0f, 0 );
                         }
                     }
@@ -286,7 +281,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[2 * 3 + 1].transform.eulerAngles = new Vector3(0, -90.0f, 0);
                         }
                     }
@@ -303,7 +297,6 @@ public class Movecard : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            Debug.Log("@@@");
                             ins_card.instance.cardobj[2 * 3 + 2].transform.eulerAngles = new Vector3(0, -90.0f, 0);
                         }
                     }
@@ -716,6 +709,8 @@ public class Movecard : MonoBehaviourPunCallbacks
 
         if (Player.instance.player[0].player_card == 0 && Player.instance.player[1].player_card == 0)          //모두 돌아서 false가 됐을 때
         {
+            photonView.RPC("RPCmovedone", RpcTarget.All);
+
             //Player.instance.player[localPleyerIndex].cardselectdone = false;
             photonView.RPC("RPCcardselectdone", RpcTarget.All, localPleyerIndex);
 
@@ -736,6 +731,18 @@ public class Movecard : MonoBehaviourPunCallbacks
 
         }
 
+    }
+
+    [PunRPC]
+    public void RPCmovedone()
+    {
+        if (previousmoving == true && previousmoving != Player.instance.player[gogo.instance.turn_number % 3].is_moving)
+        {
+            gogo.instance.turn_number++;
+        }
+        previousmoving = Player.instance.player[gogo.instance.turn_number % 3].is_moving;
+        
+        
     }
 
 
@@ -763,10 +770,9 @@ public class Movecard : MonoBehaviourPunCallbacks
         if(Player.instance.sum_card != 0)
         {
             Player.instance.player[gogo.instance.turn_number % 3].player_pos += (Player.instance.sum_card - 1);
+            Player.instance.player[gogo.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money; ;
             Player.instance.sum_card = 0;
         }
-        //Debug.Log("adsfadsasdds123213213213543");
-        Debug.Log(Player.instance.player[gogo.instance.turn_number % 3].player_pos);
     }
 
     [PunRPC]

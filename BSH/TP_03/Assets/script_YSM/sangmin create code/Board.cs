@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Board : MonoBehaviour
+public class Board : MonoBehaviourPunCallbacks
 {
     static public Board instance;
     //각 보드칸이 가지고 있는 정보를 구조체로 만들었음
@@ -31,15 +32,21 @@ public class Board : MonoBehaviour
         }
 
         //보드 점수 설정 하는 부분
-        gameboard[1].money = 2;
-        gameboard[3].money = -3;
-        gameboard[5].money = -4;
-        gameboard[7].money = 5;
+        photonView.RPC("RPCsetboardmoney", RpcTarget.All, 1, 2);
+        photonView.RPC("RPCsetboardmoney", RpcTarget.All, 3, -3);
+        photonView.RPC("RPCsetboardmoney", RpcTarget.All, 5, -4);
+        photonView.RPC("RPCsetboardmoney", RpcTarget.All, 7, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
   
+    }
+
+    [PunRPC]
+    public void RPCsetboardmoney(int i, int j)
+    {
+        gameboard[i].money = j;
     }
 }

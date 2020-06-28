@@ -121,6 +121,7 @@
     <Compile Include="Assets\script_BSH\b.cs" />
     <Compile Include="Assets\script_BSH\c.cs" />
     <Compile Include="Assets\script_BSH\test.cs" />
+    <Compile Include="Assets\script_LSW\TableNumUpdate.cs" />
     <Compile Include="Assets\script_SCM\PERCENT.cs" />
     <Compile Include="Assets\script_SCM\fading.cs" />
     <Compile Include="Assets\script_SCM\healthscripit.cs" />
@@ -141,8 +142,10 @@
     <Compile Include="Assets\script_YSM\ins_card.cs" />
     <Compile Include="Assets\script_YSM\sangmin create code\Board.cs" />
     <Compile Include="Assets\script_YSM\sangmin create code\Cardaaaaa.cs" />
+    <Compile Include="Assets\script_YSM\sangmin create code\Scooooore.cs" />
     <Compile Include="Assets\script_YSM\sangmin create code\Turn.cs" />
     <Compile Include="Assets\script_YSM\sangmin create code\timer.cs" />
+    <Compile Include="Assets\script_YSM\sangmin create code\wincheck.cs" />
     <Compile Include="Assets\time.cs" />
     <Compile Include="Assets\turnsystem.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

@@ -450,14 +450,14 @@ MonoBehaviour:
   m_Gizmos: 1
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.3006289, y: -0.27193785, z: -2.3583574}
+    m_Target: {x: 388.5, y: 218.5, z: 0}
     speed: 2
-    m_Value: {x: -1.3006289, y: -0.27193785, z: -2.3583574}
+    m_Value: {x: 388.5, y: 218.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -503,17 +503,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0033216209, y: 0.92418665, z: -0.38184816, w: -0.008039615}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0.0033216134, y: 0.92418456, z: -0.3818473, w: -0.0080395965}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.8658
+    m_Target: 445.7292
     speed: 2
-    m_Value: 4.8658
+    m_Value: 445.7292
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -527,7 +527,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.0011751613, y: 0.99875504, z: -0.02878186, w: 0.04077298}
+  m_LastSceneViewRotation: {x: -0.014660666, y: -0.78552485, z: 0.61837906, w: -0.018623242}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -27186
+  m_LastSelectedObjectID: 150916
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -684,7 +684,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 50f6ffff70f6ffffa4f8ffffaaf8ffff70fbffff
+      m_ExpandedIDs: 4654feff6654feffc056feffc456feff0e5cfeff2e5cfeff885efeff8c5efeff8664feffa664feff0067feff0467feff2670feff4670feffac72feffb072feffc47cfeffe47cfeff3e7ffeff427ffeffe685feff0686feff6088feff6488feff6893feff8893feffe295feffe695feff629dfeffc29dfeffe29dfefffc9ffeff16a0feffe8a3feffe0a9feff00aafeff5aacfeff5eacfeff04b2feff24b2feff7eb4feff82b4feffc2bbfeffe2bbfeff3cbefeff40befeff84c3feffa4c3fefffec5feff02c6feff42cbfeff62cbfeffbccdfeffc0cdfeff70d8feff90d8fefffadafefffedafeff36dbfeffa0dcfeffa8ddfeff48defeff68defeffc2e0feffc6e0fefffee0feffc4e5feffece6feff9ce7feffbce7feff16eafeff1aeafeff64effeff84effeffdef1feffe2f1feffaaf6feff52f7feff72f7feffdcf9feffe0f9feff60fbfeff24fdfeffc6fdfeffe6fdfeff4000ffff4400ffffe604ffff8605ffffa605ffff0008ffff0408ffff3c08ffffe00fffff8a11ffffaa11ffff0214ffff0614ffff361cffff561cffffbe1effffc21effff6620ffff9622ffffb622ffff0e25ffff1225ffff942dffffb42dfffff42dfffffc2dffff0e2effff482effff682effff7e30ffff9830ffff4835ffffb836ffff5837ffff7837ffffd439ffffdc39ffff423fffff623fffffbe41ffffc641ffffa846ffff0847ffff2847ffff4449ffff5e49ffffd44cffff344fffff2055ffff7256ffff5257ffffa25cffffb45cffffca5cffffb069ffffcc69ffffdc69ffffec69ffff006affff706cffff906cffffb66effffba6effffb674ffffd674fffffc76ffff0077ffff747cffff947cffffba7effffbe7effff9485ffffa087ffffc087ffffe689ffffea89ffffa099ffff629bffffc89dffff6e9effff54a3ffff92a8ffffb2a8ffffd8aaffffdcaaffffe2aeffffb6b2ffff00b4fffff2c5ffff9cc7ffffbcc7ffffecc9fffff0c9ffff2ecaffffd8d4ffff5cd8ffff7cd8ffffa0daffffa4daffffb6e0ffffd6e0fffffce2ffff00e3ffffd0e8fffff0e8ffff16ebffff1aebffff8ef0ffffaef0ffffe2f2ffffe6f2ffff4af6ffff6af6ffff9ef8ffffa4f8ffff70fbffff269000008492000064a600006ca60000baa70000d0a7000032a80000c6a800007cbc00008cbd000006d500001cd5000080d5000016d6000018e7000012e800000a1101005c12010072120100d61201006c130100fc5b0100108e0100649301006696010096eb0100c4eb010078ed0100f237020082390200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -747,34 +747,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/script_YSM
+    - Assets/script_YSM/sangmin create code
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/script_YSM
+  - Assets/script_YSM/sangmin create code
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Users\Acer\git\TeamProject\BSH\TP_03
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 223b0000
-    m_LastClickedID: 15138
-    m_ExpandedIDs: 000000003c3a00003e3a0000403a0000423a0000443a000000ca9a3b
+    m_SelectedIDs: 243b0000
+    m_LastClickedID: 15140
+    m_ExpandedIDs: 000000003c3a00003e3a0000403a0000423a0000443a0000223b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Scenes_YSM
+      m_OriginalName: Scenes_YSM
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 15132
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -832,7 +832,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 7}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

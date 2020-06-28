@@ -28,8 +28,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.LocalPlayer.NickName == null)
         {
             joinButton.interactable = false;
-            PhotonNetwork.LocalPlayer.NickName = NickNameInput.text;
+           
         }
+
+        
+
 
         joinButton.interactable = true;
 
@@ -71,6 +74,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //방에 접속을 성공했을 때
     public override void OnJoinedRoom()
     {
+        PhotonNetwork.LocalPlayer.NickName = NickNameInput.text;
+
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+
+
         PhotonNetwork.LoadLevel("SampleScene"); //게임할 씬으로 넘어가게하기
 
         // base.OnJoinedRoom();

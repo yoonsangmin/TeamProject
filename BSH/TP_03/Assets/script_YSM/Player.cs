@@ -149,7 +149,17 @@ public class Player : MonoBehaviourPunCallbacks
             //Debug.Log("이런_3");
             photonView.RPC("RPC_Player", RpcTarget.All, 2);
         }
+
+
+
     }
+
+
+    //[PunRPC]
+    //public void RPCMoneyUpdate(int num)
+    //{
+    //    player[num].player_money = 10;
+    //}
 
     [PunRPC]
     public void RPC_Player(int num)
