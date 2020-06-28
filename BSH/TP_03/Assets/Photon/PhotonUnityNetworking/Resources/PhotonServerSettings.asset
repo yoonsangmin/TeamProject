@@ -74,6 +74,19 @@ MonoBehaviour:
   - RPCMoneyUpdate
   - RPC_mmmmmmmmmm
   - RPCmovedone
+  - b
+  - C_1
+  - C_2
+  - C_3
+  - EX
+  - P_P
+  - P_Moving
+  - P_Moving_F
+  - P_Prev
+  - T_UP
+  - B_M
+  - P_money
+  - P_money_plus
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

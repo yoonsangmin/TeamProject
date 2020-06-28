@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 19482423828491293}
   - component: {fileID: 4969452479643864232}
   - component: {fileID: -2728678786382867122}
+  - component: {fileID: -528003430608953580}
   m_Layer: 0
   m_Name: 2card_1
   m_TagString: 2Player_card_1
@@ -149,3 +150,15 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &-528003430608953580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899676311538359822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f21bef4a7bd624fb0ef2e1db29d36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

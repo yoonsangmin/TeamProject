@@ -709,7 +709,7 @@ public class Movecard : MonoBehaviourPunCallbacks
 
         if (Player.instance.player[0].player_card == 0 && Player.instance.player[1].player_card == 0)          //모두 돌아서 false가 됐을 때
         {
-            photonView.RPC("RPCmovedone", RpcTarget.All);
+            //photonView.RPC("RPCmovedone", RpcTarget.All);
 
             //Player.instance.player[localPleyerIndex].cardselectdone = false;
             photonView.RPC("RPCcardselectdone", RpcTarget.All, localPleyerIndex);
@@ -738,10 +738,9 @@ public class Movecard : MonoBehaviourPunCallbacks
     {
         if (previousmoving == true && Player.instance.player[gogo.instance.turn_number % 3].is_moving == false)
         {
-            Player.instance.player[gogo.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money;
-            Debug.Log("player 머니"+Player.instance.player[gogo.instance.turn_number % 3].player_money);
-            Debug.Log("보드칸의 머니"+Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money);
-            Debug.Log("면번째 칸인지" + Player.instance.player[gogo.instance.turn_number % 3].player_pos);
+            //Debug.Log("player 머니"+Player.instance.player[gogo.instance.turn_number % 3].player_money);
+            //Debug.Log("보드칸의 머니"+Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money);
+            //Debug.Log("면번째 칸인지" + Player.instance.player[gogo.instance.turn_number % 3].player_pos);
             gogo.instance.turn_number++;
         }
         previousmoving = Player.instance.player[gogo.instance.turn_number % 3].is_moving;
@@ -773,8 +772,10 @@ public class Movecard : MonoBehaviourPunCallbacks
     {
         if(Player.instance.sum_card != 0)
         {
+            Player.instance.player[gogo.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money;
             Player.instance.player[gogo.instance.turn_number % 3].player_pos += (Player.instance.sum_card - 1);
-            
+            Debug.Log("카드합 "+Player.instance.sum_card);
+            Debug.Log("플레이어 1 위치 " + Player.instance.player[gogo.instance.turn_number % 3].player_pos);
             Player.instance.sum_card = 0;
         }
     }

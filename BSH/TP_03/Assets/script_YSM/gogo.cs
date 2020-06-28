@@ -56,7 +56,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                 playerchar[0].transform.position = Vector3.MoveTowards(playerchar[0].transform.position, Player.instance.cann[(nowcann[0]) % 24].transform.position, 0.1f);
 
-                if ((Player.instance.player[turn_number % 3].player_pos * 3) % 24 != nowcann[0])
+                if ((testakakakak.instance.localplayerpos[0] * 3) % 24 != nowcann[0])
                 {
                     if (playerchar[0].transform.position == Player.instance.cann[(nowcann[0]) % 24].transform.position)
                     {
@@ -66,9 +66,9 @@ public class gogo : MonoBehaviourPunCallbacks
                         nowcann[0] %= 24;
                     }
                 }
-                else if ((Player.instance.player[turn_number % 3].player_pos * 3) % 24 == nowcann[0])
+                else if ((testakakakak.instance.localplayerpos[0] * 3) % 24 == nowcann[0])
                 {
-                    if (playerchar[0].transform.position == Player.instance.cann[(Player.instance.player[turn_number % 3].player_pos * 3) % 24].transform.position)
+                    if (playerchar[0].transform.position == Player.instance.cann[(testakakakak.instance.localplayerpos[0] * 3) % 24].transform.position)
                     {
 
                         //if (Player.instance.player[Turn.instance.turn_number % 3].player_pos == 2 * 3)                              //감옥칸 밟았을 때
@@ -124,7 +124,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                         photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
-                        //turn_number++;
+                        turn_number++;
                         dorara1 = false;
                         dorara2 = false;
                         //Debug.Log(turn_number);
@@ -140,7 +140,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                 playerchar[1].transform.position = Vector3.MoveTowards(playerchar[1].transform.position, Player.instance.cann[(nowcann[1]) % 24].transform.position, 0.1f);
 
-                if (((Player.instance.player[turn_number % 3].player_pos * 3) + 1) % 24 != nowcann[1])
+                if (((testakakakak.instance.localplayerpos[1] * 3) + 1) % 24 != nowcann[1])
                 {
                     if (playerchar[1].transform.position == Player.instance.cann[(nowcann[1]) % 24].transform.position)
                     {
@@ -150,9 +150,9 @@ public class gogo : MonoBehaviourPunCallbacks
                         nowcann[1] %= 24;
                     }
                 }
-                else if (((Player.instance.player[turn_number % 3].player_pos * 3) + 1) % 24 == nowcann[1])
+                else if (((testakakakak.instance.localplayerpos[1] * 3) + 1) % 24 == nowcann[1])
                 {
-                    if (playerchar[1].transform.position == Player.instance.cann[((Player.instance.player[turn_number % 3].player_pos * 3) + 1) % 24].transform.position)
+                    if (playerchar[1].transform.position == Player.instance.cann[((testakakakak.instance.localplayerpos[1] * 3) + 1) % 24].transform.position)
                     {
 
                         //if (Player.instance.player[Turn.instance.turn_number % 3].player_pos == 2 * 3)                              //감옥칸 밟았을 때
@@ -198,7 +198,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                         photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
-//                        turn_number++;
+                        turn_number++;
                         dorara1 = false;
                         dorara2 = false;
                         //dorara3 = false;
@@ -261,8 +261,6 @@ public class gogo : MonoBehaviourPunCallbacks
                         // photonView.RPC("RPCmoneyplus", RpcTarget.All);
                         photonView.RPC("RPC_mmmmmmmmmm", RpcTarget.All, 0, Board.instance.gameboard[Player.instance.player[turn_number % 3].player_pos % 8].money);
 
-                        Debug.Log("플레이어 3 머니 " + Player.instance.player[turn_number % 3].player_money);
-
                         //momoney = Player.instance.player[turn_number % 3].player_money;
 
                         //------------------
@@ -273,7 +271,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                         photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
-                        //turn_number++;
+                        turn_number++;
                         dorara1 = false;
                         dorara2 = false;
                         //dorara3 = false;
