@@ -736,8 +736,12 @@ public class Movecard : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPCmovedone()
     {
-        if (previousmoving == true && previousmoving != Player.instance.player[gogo.instance.turn_number % 3].is_moving)
+        if (previousmoving == true && Player.instance.player[gogo.instance.turn_number % 3].is_moving == false)
         {
+            Player.instance.player[gogo.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money;
+            Debug.Log("player 머니"+Player.instance.player[gogo.instance.turn_number % 3].player_money);
+            Debug.Log("보드칸의 머니"+Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money);
+            Debug.Log("면번째 칸인지" + Player.instance.player[gogo.instance.turn_number % 3].player_pos);
             gogo.instance.turn_number++;
         }
         previousmoving = Player.instance.player[gogo.instance.turn_number % 3].is_moving;
@@ -770,7 +774,7 @@ public class Movecard : MonoBehaviourPunCallbacks
         if(Player.instance.sum_card != 0)
         {
             Player.instance.player[gogo.instance.turn_number % 3].player_pos += (Player.instance.sum_card - 1);
-            Player.instance.player[gogo.instance.turn_number % 3].player_money += Board.instance.gameboard[Player.instance.player[gogo.instance.turn_number % 3].player_pos % 8].money; ;
+            
             Player.instance.sum_card = 0;
         }
     }

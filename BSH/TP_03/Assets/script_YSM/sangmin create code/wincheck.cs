@@ -29,11 +29,12 @@ public class wincheck : MonoBehaviourPunCallbacks
 
         
         
-     
+        if(previous_turn < gogo.instance.turn_number)
+        {
             //Debug.Log("들어갔다");
-            if(PhotonNetwork.LocalPlayer.ActorNumber == 1)
+            if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
             {
-            //Debug.Log(Player.instance.player[0].player_money);
+                //Debug.Log(Player.instance.player[0].player_money);
                 if (Player.instance.player[0].player_money >= winmoney)
                 {
                     winpanel.SetActive(true);
@@ -55,8 +56,8 @@ public class wincheck : MonoBehaviourPunCallbacks
 
             if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
             {
-            //Debug.Log(Player.instance.player[1].player_money);
-            if (Player.instance.player[1].player_money >= winmoney)
+                //Debug.Log(Player.instance.player[1].player_money);
+                if (Player.instance.player[1].player_money >= winmoney)
                 {
                     winpanel.SetActive(true);
                     Debug.Log("2번 이겼다");
@@ -77,8 +78,8 @@ public class wincheck : MonoBehaviourPunCallbacks
 
             if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
             {
-            Debug.Log("3들어갔다");
-            if (Player.instance.player[2].player_money >= winmoney)
+                Debug.Log("3들어갔다");
+                if (Player.instance.player[2].player_money >= winmoney)
                 {
                     winpanel.SetActive(true);
                     Debug.Log("이겼다");
@@ -113,7 +114,9 @@ public class wincheck : MonoBehaviourPunCallbacks
             //    losepanel.SetActive(true);
             //    Debug.Log("졌다");
             //}
-        
+        }
+
+
 
         previous_turn = gogo.instance.turn_number;
         //photonView.RPC("RPCturnprogress", RpcTarget.All);
