@@ -9,7 +9,7 @@ public class wincheck : MonoBehaviourPunCallbacks
     public GameObject winpanel;
     public GameObject losepanel;
 
-    public int winmoney = 12;
+    public int winmoney = 30;
 
     int previous_turn = 0;
 

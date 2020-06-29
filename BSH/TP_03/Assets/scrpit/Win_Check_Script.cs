@@ -8,7 +8,7 @@ public class Win_Check_Script : MonoBehaviourPunCallbacks
     public GameObject winpanel;
     public GameObject losepanel;
     
-    int win_money = 15;
+    int win_money = 30;
     
     // Update is called once per frame
     void Update()
