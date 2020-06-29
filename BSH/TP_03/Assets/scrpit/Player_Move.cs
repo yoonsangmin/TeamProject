@@ -63,7 +63,7 @@ public class Player_Move : MonoBehaviourPunCallbacks
 
                         if (Player_Spawn.instance.Player_Is_Flex[0] == 2)        //트리플렉스 일 때
                         {
-
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 0);    //1번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[0] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
@@ -126,7 +126,7 @@ public class Player_Move : MonoBehaviourPunCallbacks
 
                         if (Player_Spawn.instance.Player_Is_Flex[1] == 2)        //트리플렉스 일 때
                         {
-
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 1);    //2번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[1] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
@@ -188,7 +188,7 @@ public class Player_Move : MonoBehaviourPunCallbacks
 
                         if (Player_Spawn.instance.Player_Is_Flex[2] == 2)        //트리플렉스 일 때
                         {
-
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 2);    //3번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[2] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
@@ -204,9 +204,15 @@ public class Player_Move : MonoBehaviourPunCallbacks
                     }
                 }
             }
-        }
-       
+        }       
            
+    }
+
+
+    [PunRPC]
+    public void P_TriFlex_T(int num1)
+    {
+        Player_Spawn.instance.Player_Is_TriFlex[num1] = true;
     }
 
     [PunRPC]

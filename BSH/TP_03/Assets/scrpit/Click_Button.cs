@@ -37,246 +37,255 @@ public class Click_Button : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0 && Player_Spawn.instance.Player_Is_Freedom[0] == true)           //플레이어 1이고 자기 턴일 때
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0)           //플레이어 1이고 자기 턴일 때
         {
-            if (Input.GetMouseButtonDown(0))
+            if(Player_Spawn.instance.Player_Is_Freedom[0] || Player_Spawn.instance.Player_Is_TriFlex[0])
             {
-                target = GetClickedObject();
-
-                try
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (target.Equals(gameObject))
+                    target = GetClickedObject();
+
+                    try
                     {
-                        _mouseState = true;
-                    }
+                        if (target.Equals(gameObject))
+                        {
+                            _mouseState = true;
+                        }
 
 
 
-                    if (target.gameObject.tag == "SP1")
-                    {
-                        a = 0;
-                        ClickDone = true;
+                        if (target.gameObject.tag == "SP1")
+                        {
+                            a = 0;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP2")
+                        {
+                            a = 1;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP3")
+                        {
+                            a = 2;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP4")
+                        {
+                            a = 3;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP5")
+                        {
+                            a = 4;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP6")
+                        {
+                            a = 5;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP7")
+                        {
+                            a = 6;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP8")
+                        {
+                            a = 7;
+                            ClickDone = true;
+                        }
                     }
-                    else if (target.gameObject.tag == "SP2")
+
+                    catch (NullReferenceException ex)
                     {
-                        a = 1;
-                        ClickDone = true;
+
+                        Debug.Log(ex);
+
                     }
-                    else if (target.gameObject.tag == "SP3")
-                    {
-                        a = 2;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP4")
-                    {
-                        a = 3;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP5")
-                    {
-                        a = 4;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP6")
-                    {
-                        a = 5;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP7")
-                    {
-                        a = 6;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP8")
-                    {
-                        a = 7;
-                        ClickDone = true;
-                    }
+
+
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _mouseState = false;
                 }
 
-                catch (NullReferenceException ex)
+                if (_mouseState)
                 {
-
-                    Debug.Log(ex);
-
+                    transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 }
-
-
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                _mouseState = false;
-            }
-
-            if (_mouseState)
-            {
-                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                else
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
             }
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1 && Player_Spawn.instance.Player_Is_Freedom[1] == true)           //플레이어 1이고 자기 턴일 때
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)           //플레이어 2이고 자기 턴일 때
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Player_Spawn.instance.Player_Is_Freedom[1] || Player_Spawn.instance.Player_Is_TriFlex[1])
             {
-                target = GetClickedObject();
-
-                try
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (target.Equals(gameObject))
+                    target = GetClickedObject();
+
+                    try
                     {
-                        _mouseState = true;
-                    }
+                        if (target.Equals(gameObject))
+                        {
+                            _mouseState = true;
+                        }
 
 
 
-                    if (target.gameObject.tag == "SP1")
-                    {
-                        a = 0;
-                        ClickDone = true;
+                        if (target.gameObject.tag == "SP1")
+                        {
+                            a = 0;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP2")
+                        {
+                            a = 1;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP3")
+                        {
+                            a = 2;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP4")
+                        {
+                            a = 3;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP5")
+                        {
+                            a = 4;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP6")
+                        {
+                            a = 5;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP7")
+                        {
+                            a = 6;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP8")
+                        {
+                            a = 7;
+                            ClickDone = true;
+                        }
                     }
-                    else if (target.gameObject.tag == "SP2")
+
+                    catch (NullReferenceException ex)
                     {
-                        a = 1;
-                        ClickDone = true;
+
+                        Debug.Log(ex);
+
                     }
-                    else if (target.gameObject.tag == "SP3")
-                    {
-                        a = 2;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP4")
-                    {
-                        a = 3;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP5")
-                    {
-                        a = 4;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP6")
-                    {
-                        a = 5;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP7")
-                    {
-                        a = 6;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP8")
-                    {
-                        a = 7;
-                        ClickDone = true;
-                    }
+
+
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _mouseState = false;
                 }
 
-                catch (NullReferenceException ex)
+                if (_mouseState)
                 {
-
-                    Debug.Log(ex);
-
+                    transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 }
-
-
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                _mouseState = false;
-            }
-
-            if (_mouseState)
-            {
-                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                else
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
             }
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2 && Player_Spawn.instance.Player_Is_Freedom[2] == true)           //플레이어 1이고 자기 턴일 때
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)           //플레이어 3이고 자기 턴일 때
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Player_Spawn.instance.Player_Is_Freedom[2] || Player_Spawn.instance.Player_Is_TriFlex[2])
             {
-                target = GetClickedObject();
-
-                try
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (target.Equals(gameObject))
+                    target = GetClickedObject();
+
+                    try
                     {
-                        _mouseState = true;
-                    }
+                        if (target.Equals(gameObject))
+                        {
+                            _mouseState = true;
+                        }
 
 
 
-                    if (target.gameObject.tag == "SP1")
-                    {
-                        a = 0;
-                        ClickDone = true;
+                        if (target.gameObject.tag == "SP1")
+                        {
+                            a = 0;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP2")
+                        {
+                            a = 1;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP3")
+                        {
+                            a = 2;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP4")
+                        {
+                            a = 3;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP5")
+                        {
+                            a = 4;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP6")
+                        {
+                            a = 5;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP7")
+                        {
+                            a = 6;
+                            ClickDone = true;
+                        }
+                        else if (target.gameObject.tag == "SP8")
+                        {
+                            a = 7;
+                            ClickDone = true;
+                        }
                     }
-                    else if (target.gameObject.tag == "SP2")
+
+                    catch (NullReferenceException ex)
                     {
-                        a = 1;
-                        ClickDone = true;
+
+                        Debug.Log(ex);
+
                     }
-                    else if (target.gameObject.tag == "SP3")
-                    {
-                        a = 2;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP4")
-                    {
-                        a = 3;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP5")
-                    {
-                        a = 4;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP6")
-                    {
-                        a = 5;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP7")
-                    {
-                        a = 6;
-                        ClickDone = true;
-                    }
-                    else if (target.gameObject.tag == "SP8")
-                    {
-                        a = 7;
-                        ClickDone = true;
-                    }
+
+
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _mouseState = false;
                 }
 
-                catch (NullReferenceException ex)
+                if (_mouseState)
                 {
-
-                    Debug.Log(ex);
-
+                    transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 }
-
-
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                _mouseState = false;
-            }
-
-            if (_mouseState)
-            {
-                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                else
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
             }
         }
     }

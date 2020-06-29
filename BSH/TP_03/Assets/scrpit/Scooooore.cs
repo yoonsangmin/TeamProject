@@ -36,89 +36,122 @@ public class Scooooore : MonoBehaviourPunCallbacks
 
         if(Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[1] && Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[2])
         {
+            photonView.RPC("Rank", RpcTarget.All, 0, 1);
             ranking1.text = "1위";
             if(Player_Spawn.instance.Player_Money[1] > Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 1, 2);
                 ranking2.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 3);
                 ranking3.text = "3위";
             }
             else if(Player_Spawn.instance.Player_Money[1] < Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 1, 3);
                 ranking2.text = "3위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 2);
                 ranking3.text = "2위";
             }
             else if (Player_Spawn.instance.Player_Money[1] == Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 1, 2);
                 ranking2.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 2);
                 ranking3.text = "2위";
             }
         }
 
         else if (Player_Spawn.instance.Player_Money[1] > Player_Spawn.instance.Player_Money[0] && Player_Spawn.instance.Player_Money[1] > Player_Spawn.instance.Player_Money[2])
         {
+            photonView.RPC("Rank", RpcTarget.All, 1, 1);
             ranking2.text = "1위";
             if (Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 2);
                 ranking1.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 3);
                 ranking3.text = "3위";
             }
             else if (Player_Spawn.instance.Player_Money[0] < Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 3);
                 ranking1.text = "3위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 2);
                 ranking3.text = "2위";
             }
             else if (Player_Spawn.instance.Player_Money[0] == Player_Spawn.instance.Player_Money[2])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 2);
                 ranking1.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 2, 2);
                 ranking3.text = "2위";
             }
         }
 
         else if (Player_Spawn.instance.Player_Money[2] > Player_Spawn.instance.Player_Money[0] && Player_Spawn.instance.Player_Money[2] > Player_Spawn.instance.Player_Money[1])
         {
+            photonView.RPC("Rank", RpcTarget.All, 2, 1);
             ranking3.text = "1위";
             if (Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[1])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 2);
                 ranking1.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 1, 3);
                 ranking2.text = "3위";
             }
             else if (Player_Spawn.instance.Player_Money[0] < Player_Spawn.instance.Player_Money[1])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 3);
                 ranking1.text = "3위";
+                photonView.RPC("Rank", RpcTarget.All, 1, 2);
                 ranking2.text = "2위";
             }
             else if (Player_Spawn.instance.Player_Money[0] == Player_Spawn.instance.Player_Money[1])
             {
+                photonView.RPC("Rank", RpcTarget.All, 0, 2);
                 ranking1.text = "2위";
+                photonView.RPC("Rank", RpcTarget.All, 1, 2);
                 ranking2.text = "2위";
             }
         }
 
         else if(Player_Spawn.instance.Player_Money[0] == Player_Spawn.instance.Player_Money[1] && Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[2])
         {
+            photonView.RPC("Rank", RpcTarget.All, 0, 1);
             ranking1.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 1, 1);
             ranking2.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 2, 2);
             ranking3.text = "2위";
         }
 
         else if (Player_Spawn.instance.Player_Money[0] == Player_Spawn.instance.Player_Money[2] && Player_Spawn.instance.Player_Money[0] > Player_Spawn.instance.Player_Money[1])
         {
+            photonView.RPC("Rank", RpcTarget.All, 0, 1);
             ranking1.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 1, 2);
             ranking2.text = "2위";
+            photonView.RPC("Rank", RpcTarget.All, 2, 1);
             ranking3.text = "1위";
         }
 
         else if (Player_Spawn.instance.Player_Money[1] == Player_Spawn.instance.Player_Money[2] && Player_Spawn.instance.Player_Money[1] > Player_Spawn.instance.Player_Money[0])
         {
+            photonView.RPC("Rank", RpcTarget.All, 0, 2);
             ranking1.text = "2위";
+            photonView.RPC("Rank", RpcTarget.All, 1, 1);
             ranking2.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 2, 1);
             ranking3.text = "1위";
         }
 
         else if(Player_Spawn.instance.Player_Money[0] == Player_Spawn.instance.Player_Money[1] && Player_Spawn.instance.Player_Money[1] == Player_Spawn.instance.Player_Money[2])
         {
+            photonView.RPC("Rank", RpcTarget.All, 0, 1);
             ranking1.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 1, 1);
             ranking2.text = "1위";
+            photonView.RPC("Rank", RpcTarget.All, 2, 1);
             ranking3.text = "1위";
         }
 
@@ -157,5 +190,11 @@ public class Scooooore : MonoBehaviourPunCallbacks
         }
 
 
+    }
+
+    [PunRPC]
+    public void Rank(int num1, int num2)
+    {
+        Player_Spawn.instance.Player_Ranking[num1] = num2;
     }
 }

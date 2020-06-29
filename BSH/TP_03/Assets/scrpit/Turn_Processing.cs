@@ -15,13 +15,13 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0)           //플레이어 1이고 자기 턴일 때
         {
-            if (Player_Spawn.instance.Player_Is_Prision[0] == true)        // 무브 끝나고 턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            if (Player_Spawn.instance.Player_Is_Prision[0])        // 무브 끝나고 턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
             {
                 photonView.RPC("P_Prison_F", RpcTarget.All, 0); //감옥 트리거를 초기화
                 photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
 
             }
-            else if (Player_Spawn.instance.Player_Is_Freedom[0] == true)     //여행칸 밟았을때
+            else if (Player_Spawn.instance.Player_Is_Freedom[0])     //여행칸 밟았을때
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
                 if (Click_Button.instance.ClickDone)
@@ -34,23 +34,40 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
-                //여행칸 진행
             }
-            //else                                                            //감옥이 아닌 경우에 턴 진행
-            //{
-            //    if (Card_Spawn.instance.CardSelectButton.activeSelf == false)
-            //        Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
-            //}
+            else if(Player_Spawn.instance.Player_Is_TriFlex[0])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                if (Click_Button.instance.ClickDone)
+                {
+                    if (Click_Button.instance.a != 0 && Click_Button.instance.a != 2 && Click_Button.instance.a != 4 && Click_Button.instance.a != 6)            //숫자칸만 선택가능해야 함
+                    {
+                        if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] < 0) { }
+                        //바꾸려는 칸이 양수인데 나머지가 모두 음수인 경우 아무것도 안함
+                        else if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] > 0) { }
+                        //바꾸려는 칸이 음수인데 나머지가 모두 양수인 경우 아무것도 안함
+                        else                                                                                //나머지 경우에만 실행 함 (모두 판단하기 힘들어서 예외인 경우만 처리했음)
+                        {
+                            photonView.RPC("B_Money_Change_Plus_Minus", RpcTarget.All, Click_Button.instance.a);        //선택한 칸의 숫자의 부호를 바꿔줌
+                            photonView.RPC("P_TriFlex_F", RpcTarget.All, 0);                                            //트리플렉스 사용했다고 알려줌
+                            photonView.RPC("UIButtonSwitch", RpcTarget.All, true);                                      //숫자 부호 바꾼 후에 UI버튼 다시 켜줌
+                        }
+
+                    }
+                    Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
+                }
+            }
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)             //플레이어 2이고 자기 턴일 때
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)             //플레이어 2이고 자기 턴일 때
         {
-            if (Player_Spawn.instance.Player_Is_Prision[1] == true)        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            if (Player_Spawn.instance.Player_Is_Prision[1])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
             {
                 photonView.RPC("P_Prison_F", RpcTarget.All, 1); //감옥 트리거를 초기화
                 photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
             }
-            else if (Player_Spawn.instance.Player_Is_Freedom[1] == true)     //여행칸 밟았을때
+            else if (Player_Spawn.instance.Player_Is_Freedom[1])     //여행칸 밟았을때
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
                 if (Click_Button.instance.ClickDone)
@@ -63,22 +80,40 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
-                //여행칸 진행
             }
-            //else                                                            //감옥이 아닌 경우에 턴 진행
-            //{
-            //    Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
-            //}
+            else if (Player_Spawn.instance.Player_Is_TriFlex[1])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                if (Click_Button.instance.ClickDone)
+                {
+                    if (Click_Button.instance.a != 0 && Click_Button.instance.a != 2 && Click_Button.instance.a != 4 && Click_Button.instance.a != 6)            //숫자칸만 선택가능해야 함
+                    {
+                        if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] < 0) { }
+                        //바꾸려는 칸이 양수인데 나머지가 모두 음수인 경우 아무것도 안함
+                        else if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] > 0) { }
+                        //바꾸려는 칸이 음수인데 나머지가 모두 양수인 경우 아무것도 안함
+                        else                                                                                //나머지 경우에만 실행 함 (모두 판단하기 힘들어서 예외인 경우만 처리했음)
+                        {
+                            photonView.RPC("B_Money_Change_Plus_Minus", RpcTarget.All, Click_Button.instance.a);        //선택한 칸의 숫자의 부호를 바꿔줌
+                            photonView.RPC("P_TriFlex_F", RpcTarget.All, 1);                                            //트리플렉스 사용했다고 알려줌
+                            photonView.RPC("UIButtonSwitch", RpcTarget.All, true);                                      //숫자 부호 바꾼 후에 UI버튼 다시 켜줌
+                        }
+
+                    }
+                    Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
+                }
+            }
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)             //플레이어 3이고 자기 턴일 때)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)             //플레이어 3이고 자기 턴일 때)
         {
-            if (Player_Spawn.instance.Player_Is_Prision[2] == true)        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            if (Player_Spawn.instance.Player_Is_Prision[2])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
             {
                 photonView.RPC("P_Prison_F", RpcTarget.All, 2); //감옥 트리거를 초기화
                 photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
             }
-            else if (Player_Spawn.instance.Player_Is_Freedom[2] == true)     //여행칸 밟았을때
+            else if (Player_Spawn.instance.Player_Is_Freedom[2])     //여행칸 밟았을때
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
                 if (Click_Button.instance.ClickDone)
@@ -91,15 +126,46 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
-                //여행칸 진행
             }
-            //else                                                            //감옥이 아닌 경우에 턴 진행
-            //{
-            //    Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
-            //}
+            else if (Player_Spawn.instance.Player_Is_TriFlex[2])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                if (Click_Button.instance.ClickDone)
+                {
+                    if (Click_Button.instance.a != 0 && Click_Button.instance.a != 2 && Click_Button.instance.a != 4 && Click_Button.instance.a != 6)            //숫자칸만 선택가능해야 함
+                    {
+                        if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] < 0) { }
+                        //바꾸려는 칸이 양수인데 나머지가 모두 음수인 경우 아무것도 안함
+                        else if (Board_Spawn.instance.BoardMoney[Click_Button.instance.a] < 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 2) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 4) % 8] > 0 && Board_Spawn.instance.BoardMoney[(Click_Button.instance.a + 6) % 8] > 0) { }
+                        //바꾸려는 칸이 음수인데 나머지가 모두 양수인 경우 아무것도 안함
+                        else                                                                                //나머지 경우에만 실행 함 (모두 판단하기 힘들어서 예외인 경우만 처리했음)
+                        {
+                            photonView.RPC("B_Money_Change_Plus_Minus", RpcTarget.All, Click_Button.instance.a);        //선택한 칸의 숫자의 부호를 바꿔줌
+                            photonView.RPC("P_TriFlex_F", RpcTarget.All, 2);                                            //트리플렉스 사용했다고 알려줌
+                            photonView.RPC("UIButtonSwitch", RpcTarget.All, true);                                      //숫자 부호 바꾼 후에 UI버튼 다시 켜줌
+                        }
+
+                    }
+                    Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
+                }
+            }
         }
 
 
+    }
+
+
+    [PunRPC]
+    public void B_Money_Change_Plus_Minus(int num1)
+    {
+        Board_Spawn.instance.BoardMoney[num1] = -Board_Spawn.instance.BoardMoney[num1];
+    }
+
+    [PunRPC]
+    public void P_TriFlex_F(int num1)
+    {
+        Player_Spawn.instance.Player_Is_TriFlex[num1] = false;
     }
 
     [PunRPC]

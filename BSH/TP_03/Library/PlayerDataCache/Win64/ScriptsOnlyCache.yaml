@@ -12,8 +12,10 @@ ScriptsOnlyBuild:
     - Player
     - Player_Move
     - Player_Spawn
+    - Result_Panel
     - Scooooore
     - Turn_Processing
+    - Win_Check_Script
     - b
     - fading
     - gogo
@@ -108,11 +110,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13458}
     - Class: 114
-      Script: {instanceID: 13538}
+      Script: {instanceID: 13540}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -165,11 +167,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11944}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13538}
+      Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -282,43 +284,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12688}
+      Script: {instanceID: 12690}
     - Class: 114
-      Script: {instanceID: 12724}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12742}
+      Script: {instanceID: 12744}
     - Class: 114
-      Script: {instanceID: 12824}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 12936}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 13000}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13266}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13404}
+      Script: {instanceID: 13406}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 13456}
-    - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13458}
     - Class: 114
       Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 13568}
+      Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 13578}
+    - Class: 114
+      Script: {instanceID: 13620}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -395,27 +397,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 12688}
+      Script: {instanceID: 12690}
     - Class: 114
-      Script: {instanceID: 12724}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12824}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 13000}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13322}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13372}
+      Script: {instanceID: 13374}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13458}
     - Class: 114
-      Script: {instanceID: 13538}
+      Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13578}
     - Class: 114
-      Script: {instanceID: 15296}
+      Script: {instanceID: 21746}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -488,27 +490,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 12724}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 13016}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13394}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13396}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 13538}
+      Script: {instanceID: 13458}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 23594}
+      Script: {instanceID: 13620}
+    - Class: 114
+      Script: {instanceID: 51394}
+    - Class: 114
+      Script: {instanceID: 61576}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1362,7 +1368,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomPropertiesListedInLobbyProperty
   - hash:
       serializedVersion: 2
-      Hash: 954bf7c0b85c28092342e421615d6c0c
+      Hash: 972b8a798944a328d92a3ca7d81632b4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Spawn
@@ -1570,6 +1576,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: ObjectSpin
+  - hash:
+      serializedVersion: 2
+      Hash: f78fd1181e4cd4be8d96c8e4d4168792
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Click_Button
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -2316,10 +2328,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: f78fd1181e4cd4be8d96c8e4d4168792
+      Hash: de42238d581021e985c2cd862ddfa10d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Click_Button
+    className: Win_Check_Script
+  - hash:
+      serializedVersion: 2
+      Hash: dd4400d47a8a20c7b244b940dfd49072
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Result_Panel
   platform: 19
   scenePathNames:
   - Assets/Scenes_SCM/login.unity

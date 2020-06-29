@@ -92,6 +92,11 @@ MonoBehaviour:
   - P_Freedom_F
   - P_Moving_On
   - P_Position_Change
+  - P_TriFlex
+  - P_TriFlex_T
+  - P_TriFlex_F
+  - B_Money_Change_Plus_Minus
+  - Rank
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
