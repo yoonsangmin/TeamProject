@@ -36,22 +36,6 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         photonView.RPC("P_Moving_F", RpcTarget.All);    //무빙 거짓으로 바꾸기
                         photonView.RPC("P_money_plus", RpcTarget.All, 0, Board_Spawn.instance.BoardMoney[Player_Spawn.instance.Player_Position[0]]);        // 돈 올리기
 
-
-
-                        if (Player_Spawn.instance.Player_Is_Flex[0] == 2)        //트리플렉스 일 때
-                        {
-
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
-                        {
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 0)
-                        {
-                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
-                        }
-
                         //특수칸 밟았을 때 설정해 줘야 함
 
                         if (Player_Spawn.instance.Player_Position[0] == 2)       //감옥칸 밟았을 때 트리거 줘야함
@@ -74,6 +58,22 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
+
+
+
+                        if (Player_Spawn.instance.Player_Is_Flex[0] == 2)        //트리플렉스 일 때
+                        {
+
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
+                        {
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 0)
+                        {
+                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
+                        }
 
                         photonView.RPC("UIButton", RpcTarget.All, true);     //무브 끝나면 턴 스위치 켜주기
                     }
@@ -101,20 +101,6 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         photonView.RPC("P_money_plus", RpcTarget.All, 1, Board_Spawn.instance.BoardMoney[Player_Spawn.instance.Player_Position[1]]);        //돈 올리기
 
 
-                        if (Player_Spawn.instance.Player_Is_Flex[1] == 2)        //트리플렉스 일 때
-                        {
-
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
-                        {
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 0)
-                        {
-                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
-                        }
-
                         //특수칸 밟았을 때 설정해 줘야 함
 
                         if (Player_Spawn.instance.Player_Position[1] == 2)       //감옥칸 밟았을 때 트리거 줘야함
@@ -136,7 +122,21 @@ public class Player_Move : MonoBehaviourPunCallbacks
 
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
-                        
+
+
+                        if (Player_Spawn.instance.Player_Is_Flex[1] == 2)        //트리플렉스 일 때
+                        {
+
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
+                        {
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 0)
+                        {
+                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
+                        }
 
                         photonView.RPC("UIButton", RpcTarget.All, true);     //무브 끝나면 턴 스위치 켜주기
                     }
@@ -163,20 +163,6 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         photonView.RPC("P_money_plus", RpcTarget.All, 2, Board_Spawn.instance.BoardMoney[Player_Spawn.instance.Player_Position[2]]);        //돈 올리기
 
 
-                        if (Player_Spawn.instance.Player_Is_Flex[2] == 2)        //트리플렉스 일 때
-                        {
-
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
-                        {
-                            photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
-                        }
-                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 0)
-                        {
-                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
-                        }
-
                         //특수칸 밟았을 때 설정해 줘야 함
 
                         if (Player_Spawn.instance.Player_Position[2] == 2)       //감옥칸 밟았을 때 트리거 줘야함
@@ -198,7 +184,21 @@ public class Player_Move : MonoBehaviourPunCallbacks
 
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
-                     
+
+
+                        if (Player_Spawn.instance.Player_Is_Flex[2] == 2)        //트리플렉스 일 때
+                        {
+
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 1)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
+                        {
+                            photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
+                        }
+                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 0)
+                        {
+                            photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
+                        }
 
                         photonView.RPC("UIButton", RpcTarget.All, true);     //무브 끝나면 턴 스위치 켜주기
                     }

@@ -97,11 +97,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\script\Click_Button.cs" />
     <Compile Include="Assets\script\Jump.cs" />
     <Compile Include="Assets\script\Movecard.cs" />
     <Compile Include="Assets\script\Player.cs" />
     <Compile Include="Assets\script\TableNumUpdate.cs" />
+    <Compile Include="Assets\script\export\Click_Button.cs" />
     <Compile Include="Assets\script\gogo.cs" />
     <Compile Include="Assets\script\ins_card.cs" />
     <Compile Include="Assets\script\sss.cs" />

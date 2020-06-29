@@ -150,6 +150,7 @@
     <Compile Include="Assets\scrpit\Card_Move.cs" />
     <Compile Include="Assets\scrpit\Card_Select.cs" />
     <Compile Include="Assets\scrpit\Card_Spawn.cs" />
+    <Compile Include="Assets\scrpit\Click_Button.cs" />
     <Compile Include="Assets\scrpit\Player_Move.cs" />
     <Compile Include="Assets\scrpit\Player_Spawn.cs" />
     <Compile Include="Assets\scrpit\Scooooore.cs" />
@@ -782,6 +783,10 @@
       <Project>{2B3B2B9A-CB10-2378-FC06-FF52A804AC27}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
+    <ProjectReference Include="PhotonChat.csproj">
+      <Project>{752C580A-0236-1B77-ABAB-71A5EC6D8509}</Project>
+      <Name>PhotonChat</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{CC08FD36-2510-CA4F-A1E6-091F45F89978}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
@@ -789,10 +794,6 @@
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{9EF7B0CD-AC16-5563-0D14-B0373FB9C6A9}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonChat.csproj">
-      <Project>{752C580A-0236-1B77-ABAB-71A5EC6D8509}</Project>
-      <Name>PhotonChat</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

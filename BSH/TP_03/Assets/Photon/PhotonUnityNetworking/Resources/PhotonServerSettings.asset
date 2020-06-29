@@ -89,6 +89,9 @@ MonoBehaviour:
   - UIButtonSwitch
   - P_Freedom
   - UIButton
+  - P_Freedom_F
+  - P_Moving_On
+  - P_Position_Change
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
