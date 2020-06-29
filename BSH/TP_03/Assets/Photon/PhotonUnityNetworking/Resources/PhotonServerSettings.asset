@@ -27,7 +27,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: kr
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -78,6 +78,17 @@ MonoBehaviour:
   - RPCUpdateCard_2
   - RPCUpdateCard_3
   - T_UP
+  - P_money_under
+  - T_DOWN
+  - P_Flex
+  - P_Flex_Init
+  - P_Prison
+  - P_Prison_T
+  - Turn_UP
+  - P_Prison_F
+  - UIButtonSwitch
+  - P_Freedom
+  - UIButton
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1

@@ -14,6 +14,8 @@ public class Card_Spawn : MonoBehaviourPunCallbacks
 
     public GameObject[] Card_Obj;   //카드 오브젝트
 
+    public GameObject CardSelectButton;
+
     private void Awake()
     {
         instance = this;

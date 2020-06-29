@@ -266,9 +266,23 @@ public class Card_Move : MonoBehaviourPunCallbacks
             //photonView.RPC("P_P", RpcTarget.All, Board_Spawn.instance.Turn % 3, Card_Select.instance.select_num[0] + Card_Select.instance.select_num[1] + Card_Select.instance.select_num[2] - 1);
             Player_Spawn.instance.Player_Position[Board_Spawn.instance.Turn % 3] += (Card_Select.instance.select_num[0] + Card_Select.instance.select_num[1] + Card_Select.instance.select_num[2] - 1);
             Player_Spawn.instance.Player_Position[Board_Spawn.instance.Turn % 3] %= 8;
+            
+            //위치 동기화 오류날 때도 있어서 뿌려줌
+            photonView.RPC("P_P", RpcTarget.All, Board_Spawn.instance.Turn % 3, Player_Spawn.instance.Player_Position[Board_Spawn.instance.Turn % 3]);
+
 
             //플레이어 이동 시작할때 키는거
             photonView.RPC("P_Moving", RpcTarget.All, true);
+
+            //카드 초기화 전에 플렉스인지 체크
+            if (Card_Select.instance.select_num[0] == 3 && Card_Select.instance.select_num[1] == 3 && Card_Select.instance.select_num[2] == 3)        //모두 3을 냈을 때 트리플렉스
+            {
+                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 2);      //트리플렉스일때 플래그값 2로 바꿈
+            }
+            else if (Card_Select.instance.select_num[0] == Card_Select.instance.select_num[1] && Card_Select.instance.select_num[0] == Card_Select.instance.select_num[2])        //모두 같은 카드를 냈을 때
+            {
+                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 1);      //나머지 플렉스일때 플래그값 1로 바꿈
+            }
 
 
             //카드가 선택한 수 초기화
@@ -289,6 +303,11 @@ public class Card_Move : MonoBehaviourPunCallbacks
 
     }
 
+    [PunRPC]
+    public void P_Flex(int num1, int num2)
+    {
+        Player_Spawn.instance.Player_Is_Flex[num1] = num2;
+    }
 
     [PunRPC]
     public void C_1(int num1)
@@ -322,8 +341,7 @@ public class Card_Move : MonoBehaviourPunCallbacks
     [PunRPC]
     public void P_P(int num1, int num2)
     {
-        Player_Spawn.instance.Player_Position[num1] += num2;
-        Player_Spawn.instance.Player_Position[num1] %= 8;
+        Player_Spawn.instance.Player_Position[num1] = num2;
     }
 
 

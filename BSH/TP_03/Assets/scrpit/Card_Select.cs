@@ -28,18 +28,20 @@ public class Card_Select : MonoBehaviourPunCallbacks
         }
 
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && select_num[0] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 0, 1);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && select_num[1] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 1, 1);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && select_num[2] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 2, 1);
         }
+
+        Card_Spawn.instance.CardSelectButton.SetActive(false);
     }
     public void Click_2()
     {
@@ -48,18 +50,20 @@ public class Card_Select : MonoBehaviourPunCallbacks
         {
             return;
         }
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && select_num[0] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 0, 2);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && select_num[1] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 1, 2);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && select_num[2] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 2, 2);
         }
+
+        Card_Spawn.instance.CardSelectButton.SetActive(false);
     }
     public void Click_3()
     {
@@ -68,18 +72,20 @@ public class Card_Select : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && select_num[0] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 0, 3);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && select_num[1] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 1, 3);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && select_num[2] == 0)
         {
             photonView.RPC("b", RpcTarget.All, 2, 3);
         }
+
+        Card_Spawn.instance.CardSelectButton.SetActive(false);
     }
 
 

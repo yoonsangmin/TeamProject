@@ -1,0 +1,96 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+
+public class Turn_Processing : MonoBehaviourPunCallbacks
+{
+    // Update is called once per frame
+    void Update()
+    {
+        if (PhotonNetwork.PlayerList.Length < 3)
+        {
+            return;
+        }
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0)           //플레이어 1이고 자기 턴일 때
+        {
+            if (Player_Spawn.instance.Player_Is_Prision[0] == true)        // 무브 끝나고 턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            {
+                photonView.RPC("P_Prison_F", RpcTarget.All, 0); //감옥 트리거를 초기화
+                photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
+
+            }
+            else if (Player_Spawn.instance.Player_Is_Freedom[0] == true)     //여행칸 밟았을때
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                //여행칸 진행
+            }
+            //else                                                            //감옥이 아닌 경우에 턴 진행
+            //{
+            //    if (Card_Spawn.instance.CardSelectButton.activeSelf == false)
+            //        Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
+            //}
+        }
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)             //플레이어 2이고 자기 턴일 때
+        {
+            if (Player_Spawn.instance.Player_Is_Prision[1] == true)        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            {
+                photonView.RPC("P_Prison_F", RpcTarget.All, 1); //감옥 트리거를 초기화
+                photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
+            }
+            else if (Player_Spawn.instance.Player_Is_Freedom[1] == true)     //여행칸 밟았을때
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                //여행칸 진행
+            }
+            //else                                                            //감옥이 아닌 경우에 턴 진행
+            //{
+            //    Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
+            //}
+        }
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)             //플레이어 3이고 자기 턴일 때)
+        {
+            if (Player_Spawn.instance.Player_Is_Prision[2] == true)        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            {
+                photonView.RPC("P_Prison_F", RpcTarget.All, 2); //감옥 트리거를 초기화
+                photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
+            }
+            else if (Player_Spawn.instance.Player_Is_Freedom[2] == true)     //여행칸 밟았을때
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+
+                //여행칸 진행
+            }
+            //else                                                            //감옥이 아닌 경우에 턴 진행
+            //{
+            //    Card_Spawn.instance.CardSelectButton.SetActive(true);       //버튼 UI 켜기
+            //}
+        }
+
+
+    }
+
+
+    [PunRPC]
+    public void P_Prison_F(int num1)
+    {
+        Player_Spawn.instance.Player_Is_Prision[num1] = false;
+    }
+
+    [PunRPC]
+    public void UIButtonSwitch(bool num1)
+    {
+        Card_Spawn.instance.CardSelectButton.SetActive(num1);
+    }
+
+    [PunRPC]
+    public void Turn_UP()
+    {
+        Board_Spawn.instance.Turn++;
+    }
+}

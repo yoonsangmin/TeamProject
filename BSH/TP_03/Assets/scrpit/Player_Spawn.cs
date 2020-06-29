@@ -18,6 +18,12 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
 
     public int[] Player_Money;          //플레이어 총 머니
 
+    public int[] Player_Is_Flex;        //플레이어가 플렉스가 됐는지 1 = 플렉스 2 = 트리플렉스
+
+    public bool[] Player_Is_Prision;    //플레이어가 감옥칸 밟았는지
+
+    public bool[] Player_Is_Freedom;    //플레이어가 프리덤칸 밟았는지
+
     public bool Player_MovingDo;       //플레이어 이동 했는지 아닌지
 
     private void Awake()

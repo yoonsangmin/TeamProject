@@ -63,26 +63,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChannelCreationOptions.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChannelWellKnownProperties.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatAppSettings.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatChannel.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatClient.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatDisconnectCause.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatEventCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatOperationCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatParameterCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatPeer.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatState.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatUserStatus.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\IChatClientListener.cs" />
-    <None Include="Assets\Photon\PhotonChat\Code\changes-chat.txt" />
-    <None Include="Assets\Photon\PhotonChat\Code\PhotonChat.asmdef" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChannelCreationOptions.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChannelWellKnownProperties.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatAppSettings.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatChannel.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatClient.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatDisconnectCause.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatEventCode.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatOperationCode.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatParameterCode.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatPeer.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatState.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\ChatUserStatus.cs" />
+    <Compile Include="Assets\Scenes_SCM\PhotonChat\Code\IChatClientListener.cs" />
+    <None Include="Assets\Scenes_SCM\PhotonChat\Code\changes-chat.txt" />
+    <None Include="Assets\Scenes_SCM\PhotonChat\Code\PhotonChat.asmdef" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/DontDogSound/Desktop/BSH/TP_03/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Users/Acer/git/TeamProject/BSH/TP_03/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/DontDogSound/Desktop/BSH/TP_03/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Users/Acer/git/TeamProject/BSH/TP_03/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -280,10 +280,10 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/DontDogSound/Desktop/BSH/TP_03/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>D:/Users/Acer/git/TeamProject/BSH/TP_03/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/DontDogSound/Desktop/BSH/TP_03/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>D:/Users/Acer/git/TeamProject/BSH/TP_03/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
