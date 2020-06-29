@@ -35,70 +35,38 @@ MonoBehaviour:
   RpcList:
   - b
   - B_M
+  - B_Money_Change_Plus_Minus
   - C_1
   - C_2
   - C_3
-  - Click_1
-  - Click_2
-  - Click_3
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - EX
   - Fire
-  - P_money_plus
-  - P_Moving
-  - P_Moving_F
-  - P_P
-  - P_Prev
-  - RespawnSpaceship
-  - RPC_Player
-  - RPCaaaaaa_F
-  - RPCaaaaaa_T
-  - RPCcardselectdone
-  - RPCccccc_T
-  - RPCcccccc_F
-  - RPCdelay
-  - RPCdelay_I
-  - RPCdorara1_T
-  - RPCdorara2_T
-  - RPCdorara3_T
-  - RPCis_moving_F
-  - RPCis_moving_T
-  - RPCmovedone
-  - RPCplayer_card
-  - RPCplayer_pos
-  - RPCrotate_flag_F
-  - RPCrotate_flag_T
-  - RPCrotation
-  - RPCrotation_I
-  - RPCsetboardmoney
-  - RPCtttttt
-  - RPCUpdateCard_1
-  - RPCUpdateCard_2
-  - RPCUpdateCard_3
-  - T_UP
-  - P_money_under
-  - T_DOWN
   - P_Flex
   - P_Flex_Init
-  - P_Prison
-  - P_Prison_T
-  - Turn_UP
-  - P_Prison_F
-  - UIButtonSwitch
   - P_Freedom
-  - UIButton
   - P_Freedom_F
+  - P_money_plus
+  - P_money_under
+  - P_Moving
+  - P_Moving_F
   - P_Moving_On
+  - P_P
   - P_Position_Change
-  - P_TriFlex
-  - P_TriFlex_T
+  - P_Prev
+  - P_Prison
+  - P_Prison_F
   - P_TriFlex_F
-  - B_Money_Change_Plus_Minus
+  - P_TriFlex_T
   - Rank
-  - Time_Minus
-  - Time_Init
+  - RespawnSpaceship
+  - RPCtttttt
+  - T_UP
+  - Turn_UP
+  - UIButton
+  - UIButtonSwitch
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
