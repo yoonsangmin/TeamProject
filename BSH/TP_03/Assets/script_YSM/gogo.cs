@@ -122,7 +122,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
 
 
-                        photonView.RPC("RPCis_moving_F", RpcTarget.All);
+                        //photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
                         turn_number++;
                         dorara1 = false;
@@ -196,7 +196,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
 
 
-                        photonView.RPC("RPCis_moving_F", RpcTarget.All);
+                        //photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
                         turn_number++;
                         dorara1 = false;
@@ -269,7 +269,7 @@ public class gogo : MonoBehaviourPunCallbacks
 
                         //Player.instance.player[turn_number % 3].is_moving = false;
 
-                        photonView.RPC("RPCis_moving_F", RpcTarget.All);
+                        //photonView.RPC("RPCis_moving_F", RpcTarget.All);
 
                         turn_number++;
                         dorara1 = false;
@@ -289,11 +289,11 @@ public class gogo : MonoBehaviourPunCallbacks
         Player.instance.player[turn_number % 3].is_moving = true;
     }
 
-    [PunRPC]
-    public void RPCis_moving_F()
-    {
-        Player.instance.player[turn_number % 3].is_moving = false;
-    }
+    //[PunRPC]
+    //public void RPCis_moving_F()
+    //{
+    //    Player.instance.player[turn_number % 3].is_moving = false;
+    //}
 }
 
 
