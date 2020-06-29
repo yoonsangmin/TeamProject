@@ -277,11 +277,15 @@ public class Card_Move : MonoBehaviourPunCallbacks
             //카드 초기화 전에 플렉스인지 체크
             if (Card_Select.instance.select_num[0] == 3 && Card_Select.instance.select_num[1] == 3 && Card_Select.instance.select_num[2] == 3)        //모두 3을 냈을 때 트리플렉스
             {
-                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 2);      //트리플렉스일때 플래그값 2로 바꿈
+                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 3);      //트리플렉스일때 플래그값 3로 바꿈
             }
-            else if (Card_Select.instance.select_num[0] == Card_Select.instance.select_num[1] && Card_Select.instance.select_num[0] == Card_Select.instance.select_num[2])        //모두 같은 카드를 냈을 때
+            else if (Card_Select.instance.select_num[0] == 2 && Card_Select.instance.select_num[1] ==2 && Card_Select.instance.select_num[2] == 2)        //모두 2를 냈을 때 더블플렉스
             {
-                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 1);      //나머지 플렉스일때 플래그값 1로 바꿈
+                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 2);      //더블 플렉스일때 플래그값 2로 바꿈
+            }
+            else if (Card_Select.instance.select_num[0] == 1 && Card_Select.instance.select_num[1] == 1 && Card_Select.instance.select_num[2] == 1)        //모두 1을 냈을 때 플렉스
+            {
+                photonView.RPC("P_Flex", RpcTarget.All, Board_Spawn.instance.Turn % 3, 1);      //플렉스일때 플래그값 1로 바꿈
             }
 
 

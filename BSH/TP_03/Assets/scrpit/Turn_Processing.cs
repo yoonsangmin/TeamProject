@@ -15,28 +15,9 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0)           //플레이어 1이고 자기 턴일 때
         {
-            if (Player_Spawn.instance.Player_Is_Prision[0])        // 무브 끝나고 턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            if (Player_Spawn.instance.Player_Is_TriFlex[0])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
             {
-                photonView.RPC("P_Prison_F", RpcTarget.All, 0); //감옥 트리거를 초기화
-                photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
-
-            }
-            else if (Player_Spawn.instance.Player_Is_Freedom[0])     //여행칸 밟았을때
-            {
-                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
-                if (Click_Button.instance.ClickDone)
-                {   
-                    if(Click_Button.instance.a != 6)            //다시 프리덤칸으로 가면 안됨
-                    {
-                        photonView.RPC("P_Position_Change", RpcTarget.All, 0, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
-                        photonView.RPC("P_Moving_On", RpcTarget.All);                                               //움직임 트루로 해줌 무브코드로 가서 UI켜주고 턴 올려주고 무빙 끝나면 알아서 movingdo false됨
-                        photonView.RPC("P_Freedom_F", RpcTarget.All, 0);                                            //프리덤 사용했다고 알려줌
-                    }
-                    Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
-                }
-            }
-            else if(Player_Spawn.instance.Player_Is_TriFlex[0])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
-            {
+                Debug.Log("트리플렉스");
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
 
                 if (Click_Button.instance.ClickDone)
@@ -58,30 +39,32 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
             }
-        }
-
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)             //플레이어 2이고 자기 턴일 때
-        {
-            if (Player_Spawn.instance.Player_Is_Prision[1])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            else if (Player_Spawn.instance.Player_Is_Prision[0])        // 무브 끝나고 턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
             {
-                photonView.RPC("P_Prison_F", RpcTarget.All, 1); //감옥 트리거를 초기화
+                Debug.Log("감옥칸 턴 넘김");
+                photonView.RPC("P_Prison_F", RpcTarget.All, 0); //감옥 트리거를 초기화
                 photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
+
             }
-            else if (Player_Spawn.instance.Player_Is_Freedom[1])     //여행칸 밟았을때
+            else if (Player_Spawn.instance.Player_Is_Freedom[0])     //여행칸 밟았을때
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
                 if (Click_Button.instance.ClickDone)
-                {
-                    if (Click_Button.instance.a != 6)            //다시 프리덤칸으로 가면 안됨
+                {   
+                    if(Click_Button.instance.a != 6)            //다시 프리덤칸으로 가면 안됨
                     {
-                        photonView.RPC("P_Position_Change", RpcTarget.All, 1, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
+                        photonView.RPC("P_Position_Change", RpcTarget.All, 0, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
                         photonView.RPC("P_Moving_On", RpcTarget.All);                                               //움직임 트루로 해줌 무브코드로 가서 UI켜주고 턴 올려주고 무빙 끝나면 알아서 movingdo false됨
-                        photonView.RPC("P_Freedom_F", RpcTarget.All, 1);                                            //프리덤 사용했다고 알려줌
+                        photonView.RPC("P_Freedom_F", RpcTarget.All, 0);                                            //프리덤 사용했다고 알려줌
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
             }
-            else if (Player_Spawn.instance.Player_Is_TriFlex[1])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
+        }
+
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)             //플레이어 2이고 자기 턴일 때
+        {
+             if (Player_Spawn.instance.Player_Is_TriFlex[1])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
 
@@ -104,30 +87,30 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
             }
-        }
-
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)             //플레이어 3이고 자기 턴일 때)
-        {
-            if (Player_Spawn.instance.Player_Is_Prision[2])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            else if (Player_Spawn.instance.Player_Is_Prision[1])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
             {
-                photonView.RPC("P_Prison_F", RpcTarget.All, 2); //감옥 트리거를 초기화
+                photonView.RPC("P_Prison_F", RpcTarget.All, 1); //감옥 트리거를 초기화
                 photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
             }
-            else if (Player_Spawn.instance.Player_Is_Freedom[2])     //여행칸 밟았을때
+            else if (Player_Spawn.instance.Player_Is_Freedom[1])     //여행칸 밟았을때
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
                 if (Click_Button.instance.ClickDone)
                 {
                     if (Click_Button.instance.a != 6)            //다시 프리덤칸으로 가면 안됨
                     {
-                        photonView.RPC("P_Position_Change", RpcTarget.All, 2, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
+                        photonView.RPC("P_Position_Change", RpcTarget.All, 1, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
                         photonView.RPC("P_Moving_On", RpcTarget.All);                                               //움직임 트루로 해줌 무브코드로 가서 UI켜주고 턴 올려주고 무빙 끝나면 알아서 movingdo false됨
-                        photonView.RPC("P_Freedom_F", RpcTarget.All, 2);                                            //프리덤 사용했다고 알려줌
+                        photonView.RPC("P_Freedom_F", RpcTarget.All, 1);                                            //프리덤 사용했다고 알려줌
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }
             }
-            else if (Player_Spawn.instance.Player_Is_TriFlex[2])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
+        }
+
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)             //플레이어 3이고 자기 턴일 때)
+        {
+             if (Player_Spawn.instance.Player_Is_TriFlex[2])     //트리플렉스 하고 난 후 한턴 더 진행하기 전에 숫자칸 부호 바꾸기
             {
                 photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
 
@@ -146,6 +129,25 @@ public class Turn_Processing : MonoBehaviourPunCallbacks
                             photonView.RPC("UIButtonSwitch", RpcTarget.All, true);                                      //숫자 부호 바꾼 후에 UI버튼 다시 켜줌
                         }
 
+                    }
+                    Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
+                }
+            }
+            else if (Player_Spawn.instance.Player_Is_Prision[2])        //턴 시작할 때, 진행 할 플레이어가 감옥에 있으면
+            {
+                photonView.RPC("P_Prison_F", RpcTarget.All, 2); //감옥 트리거를 초기화
+                photonView.RPC("Turn_UP", RpcTarget.All);          //턴을 올림
+            }
+            else if (Player_Spawn.instance.Player_Is_Freedom[2])     //여행칸 밟았을때
+            {
+                photonView.RPC("UIButtonSwitch", RpcTarget.All, false);      //UI버튼 전체 다 꺼버림
+                if (Click_Button.instance.ClickDone)
+                {
+                    if (Click_Button.instance.a != 6)            //다시 프리덤칸으로 가면 안됨
+                    {
+                        photonView.RPC("P_Position_Change", RpcTarget.All, 2, Click_Button.instance.a);             //플레이어 위치를 마우스 클릭한 곳으로 해줌
+                        photonView.RPC("P_Moving_On", RpcTarget.All);                                               //움직임 트루로 해줌 무브코드로 가서 UI켜주고 턴 올려주고 무빙 끝나면 알아서 movingdo false됨
+                        photonView.RPC("P_Freedom_F", RpcTarget.All, 2);                                            //프리덤 사용했다고 알려줌
                     }
                     Click_Button.instance.ClickDone = false;                                                    //마우스 클릭 false로 바꿔줌
                 }

@@ -20,7 +20,7 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
 
     public int[] Player_Ranking;        //플레이어 랭크
 
-    public int[] Player_Is_Flex;        //플레이어가 플렉스가 됐는지 1 = 플렉스 2 = 트리플렉스
+    public int[] Player_Is_Flex;        //플레이어가 플렉스가 됐는지 1 = 플렉스 2 = 더블플렉스 3 = 트리플렉스
 
     public bool[] Player_Is_Prision;    //플레이어가 감옥칸 밟았는지
 
