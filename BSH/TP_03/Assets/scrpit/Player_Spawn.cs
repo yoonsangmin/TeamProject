@@ -28,6 +28,8 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
 
     public bool[] Player_Is_TriFlex;    //플레이어가 트리플렉스인지
 
+    public bool[] Player_Is_Start;    //플레이어가 스타트칸인지
+
     public bool Player_MovingDo;       //플레이어 이동 했는지 아닌지
 
     private void Awake()

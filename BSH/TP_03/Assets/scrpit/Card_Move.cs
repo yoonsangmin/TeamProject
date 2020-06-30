@@ -32,9 +32,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 0, true);
-                        transform.eulerAngles = new Vector3(0, 0, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 0);
+
+
+                        if (Card_Spawn.instance.Delay[0] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 0, true);
+                            transform.eulerAngles = new Vector3(0, 0, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 0);
+                        }
                     }  
                 }
                 
@@ -57,9 +64,17 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 0, true);
-                        transform.eulerAngles = new Vector3(0, 0, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 0);
+
+
+                        if (Card_Spawn.instance.Delay[0] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 0, true);
+                            transform.eulerAngles = new Vector3(0, 0, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 0);
+                        }
+
                     }
                 }
             }
@@ -81,9 +96,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 0, true);
-                        transform.eulerAngles = new Vector3(0, 0, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 0);
+
+
+                        if (Card_Spawn.instance.Delay[0] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 0, true);
+                            transform.eulerAngles = new Vector3(0, 0, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[0].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 0);
+                        }
                     }
                 }
             }
@@ -114,9 +136,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 1, true);
-                        transform.eulerAngles = new Vector3(0, -90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 1);
+
+
+                        if (Card_Spawn.instance.Delay[1] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 1, true);
+                            transform.eulerAngles = new Vector3(0, -90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 1);
+                        }
                     }
                 }
             }
@@ -139,9 +168,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 1, true);
-                        transform.eulerAngles = new Vector3(0, -90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 1);
+
+
+                        if (Card_Spawn.instance.Delay[1] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 1, true);
+                            transform.eulerAngles = new Vector3(0, -90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 1);
+                        }
                     }
                 }
             }
@@ -164,9 +200,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 1, true);
-                        transform.eulerAngles = new Vector3(0, -90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 1);
+
+
+                        if (Card_Spawn.instance.Delay[1] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 1, true);
+                            transform.eulerAngles = new Vector3(0, -90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[1].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 1);
+                        }
                     }
                 }
             }
@@ -192,9 +235,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 2, true);
-                        transform.eulerAngles = new Vector3(0, 90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 2);
+
+
+                        if (Card_Spawn.instance.Delay[2] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 2, true);
+                            transform.eulerAngles = new Vector3(0, 90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 2);
+                        }
                     }
                 }
             }
@@ -216,9 +266,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 2, true);
-                        transform.eulerAngles = new Vector3(0, 90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 2);
+
+
+                        if (Card_Spawn.instance.Delay[2] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 2, true);
+                            transform.eulerAngles = new Vector3(0, 90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 2);
+                        }
                     }
                 }
             }
@@ -240,9 +297,16 @@ public class Card_Move : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        photonView.RPC("EX", RpcTarget.All, 2, true);
-                        transform.eulerAngles = new Vector3(0, 90, 180);
-                        transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                        photonView.RPC("Delaylay", RpcTarget.All, 2);
+
+
+                        if (Card_Spawn.instance.Delay[2] < 0.0f)
+                        {
+                            photonView.RPC("EX", RpcTarget.All, 2, true);
+                            transform.eulerAngles = new Vector3(0, 90, 180);
+                            transform.position = Card_Spawn.instance.Card_Cann[2].transform.position;
+                            photonView.RPC("DelayInit", RpcTarget.All, 2);
+                        }
                     }
                 }
             }
@@ -305,6 +369,18 @@ public class Card_Move : MonoBehaviourPunCallbacks
 
 
 
+    }
+
+    [PunRPC]
+    public void DelayInit(int num1)
+    {
+        Card_Spawn.instance.Delay[num1] = 1.0f;
+    }
+
+    [PunRPC]
+    public void Delaylay(int num1)
+    {
+        Card_Spawn.instance.Delay[num1] -= Time.deltaTime;
     }
 
     [PunRPC]

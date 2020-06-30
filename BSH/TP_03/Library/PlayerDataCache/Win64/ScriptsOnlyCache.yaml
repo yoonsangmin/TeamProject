@@ -12,7 +12,9 @@ ScriptsOnlyBuild:
     - Player_Spawn
     - Result_Panel
     - Scooooore
+    - Turn_Arrow
     - Turn_Processing
+    - UI
     - Win_Check_Script
     - b
     - fading
@@ -37,8 +39,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -310,15 +310,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13604}
     - Class: 114
-      Script: {instanceID: 19914}
+      Script: {instanceID: 17066}
     - Class: 114
-      Script: {instanceID: 19918}
+      Script: {instanceID: 17070}
     - Class: 114
-      Script: {instanceID: 19922}
+      Script: {instanceID: 17074}
     - Class: 114
-      Script: {instanceID: 19926}
+      Script: {instanceID: 17078}
     - Class: 114
-      Script: {instanceID: 19930}
+      Script: {instanceID: 17082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -415,7 +415,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13560}
     - Class: 114
-      Script: {instanceID: 21722}
+      Script: {instanceID: 15274}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -519,6 +519,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13574}
     - Class: 114
       Script: {instanceID: 13604}
+    - Class: 114
+      Script: {instanceID: 29122}
+    - Class: 114
+      Script: {instanceID: 57096}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -592,7 +596,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 6739b3c160f3fc174297dab0143b1dea
+      Hash: 7149bfbcad1bb8960c6033248653685c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Board_Spawn
@@ -1192,7 +1196,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomIsOpenToggle
   - hash:
       serializedVersion: 2
-      Hash: 7c4597c3fe10ace393d552fb330e12c7
+      Hash: 791019b5db0a5b7861b61ecaf3b80285
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Card_Spawn
@@ -1342,7 +1346,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomPropertiesListedInLobbyProperty
   - hash:
       serializedVersion: 2
-      Hash: 972b8a798944a328d92a3ca7d81632b4
+      Hash: 592f7b5dfcb2396d9eba6fd2e0e31d46
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Spawn
@@ -2282,6 +2286,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: ce70e1b5ef04fae9bb1c1677f6a6670b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Turn_Arrow
+  - hash:
+      serializedVersion: 2
+      Hash: f0bc16b07982d1027576eab75119017b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UI
   platform: 19
   scenePathNames:
   - Assets/Scenes_SCM/login.unity

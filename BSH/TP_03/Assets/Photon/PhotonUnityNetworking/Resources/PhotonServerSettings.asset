@@ -67,6 +67,12 @@ MonoBehaviour:
   - Turn_UP
   - UIButton
   - UIButtonSwitch
+  - B_Money_Square
+  - P_Start_F
+  - P_Start_T
+  - B_Square_Devide
+  - Delaylay
+  - DelayInit
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

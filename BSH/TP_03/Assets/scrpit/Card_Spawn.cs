@@ -16,6 +16,8 @@ public class Card_Spawn : MonoBehaviourPunCallbacks
 
     public GameObject CardSelectButton;
 
+    public float[] Delay;
+
     private void Awake()
     {
         instance = this;

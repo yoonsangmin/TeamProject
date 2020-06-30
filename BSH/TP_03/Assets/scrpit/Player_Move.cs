@@ -55,7 +55,18 @@ public class Player_Move : MonoBehaviourPunCallbacks
                             photonView.RPC("P_Freedom", RpcTarget.All, 0, true);
                         }
 
-                        
+                        else if (Player_Spawn.instance.Player_Position[0] == 0)       //시작칸 밟았을 때 트리거 줘야함
+                        {
+                            photonView.RPC("P_Start_T", RpcTarget.All, 0);
+                        }
+
+
+                        while (Board_Spawn.instance.Board_Is_Square[Player_Spawn.instance.Player_Position[0]] != 0)
+                        {
+                            photonView.RPC("B_Square_Devide", RpcTarget.All, 0);   
+                        }
+
+
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
 
@@ -68,9 +79,10 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[0] == 1 || Player_Spawn.instance.Player_Is_Flex[0] == 2)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
                         {
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 0);    //1번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 0);    //플래그 초기화
                         }
-                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 0)
+                        else if (Player_Spawn.instance.Player_Is_Flex[0] == 0 && !Player_Spawn.instance.Player_Is_Start[0])
                         {
                             photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
                         }
@@ -120,6 +132,16 @@ public class Player_Move : MonoBehaviourPunCallbacks
                             photonView.RPC("P_Freedom", RpcTarget.All, 1, true);
                         }
 
+                        else if (Player_Spawn.instance.Player_Position[1] == 0)       //시작칸 밟았을 때 트리거 줘야함
+                        {
+                            photonView.RPC("P_Start_T", RpcTarget.All, 1);
+                        }
+
+                        while (Board_Spawn.instance.Board_Is_Square[Player_Spawn.instance.Player_Position[1]] != 0)
+                        {
+                            photonView.RPC("B_Square_Devide", RpcTarget.All, 1);
+                        }
+
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
 
@@ -131,9 +153,10 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[1] == 1 || Player_Spawn.instance.Player_Is_Flex[1] == 2)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
                         {
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 1);    //2번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 1);    //플래그 초기화
                         }
-                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 0)
+                        else if (Player_Spawn.instance.Player_Is_Flex[1] == 0 && !Player_Spawn.instance.Player_Is_Start[1])
                         {
                             photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
                         }
@@ -182,6 +205,16 @@ public class Player_Move : MonoBehaviourPunCallbacks
                             photonView.RPC("P_Freedom", RpcTarget.All, 2, true);
                         }
 
+                        else if (Player_Spawn.instance.Player_Position[2] == 0)       //시작칸 밟았을 때 트리거 줘야함
+                        {
+                            photonView.RPC("P_Start_T", RpcTarget.All, 2);
+                        }
+
+                        while (Board_Spawn.instance.Board_Is_Square[Player_Spawn.instance.Player_Position[2]] != 0)
+                        {
+                            photonView.RPC("B_Square_Devide", RpcTarget.All, 2);
+                        }
+
                         photonView.RPC("P_money_under", RpcTarget.All);         //돈 0보다 작아지면 0으로 하한 제한
 
 
@@ -193,9 +226,10 @@ public class Player_Move : MonoBehaviourPunCallbacks
                         }
                         else if (Player_Spawn.instance.Player_Is_Flex[2] == 1 || Player_Spawn.instance.Player_Is_Flex[2] == 2)        //나머지 플렉스 일 때 턴을 안 올리면 한 턴 더 함
                         {
+                            photonView.RPC("P_TriFlex_T", RpcTarget.All, 2);    //3번 플레이어 트리플렉스 플래그 참으로 바꿔줌
                             photonView.RPC("P_Flex_Init", RpcTarget.All, 2);    //플래그 초기화
                         }
-                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 0)
+                        else if (Player_Spawn.instance.Player_Is_Flex[2] == 0 && !Player_Spawn.instance.Player_Is_Start[2])
                         {
                             photonView.RPC("T_UP", RpcTarget.All);          //턴 올리기
                         }
@@ -207,8 +241,19 @@ public class Player_Move : MonoBehaviourPunCallbacks
         }       
            
     }
+    
 
-
+    [PunRPC]
+    public void B_Square_Devide(int num1)
+    {
+        Board_Spawn.instance.BoardMoney[Player_Spawn.instance.Player_Position[num1]] /= 2;
+        Board_Spawn.instance.Board_Is_Square[Player_Spawn.instance.Player_Position[num1]]--;
+    }
+    [PunRPC]
+    public void P_Start_T(int num1)
+    {
+        Player_Spawn.instance.Player_Is_Start[num1] = true;
+    }
     [PunRPC]
     public void P_TriFlex_T(int num1)
     {

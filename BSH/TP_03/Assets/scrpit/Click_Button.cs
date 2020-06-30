@@ -39,7 +39,7 @@ public class Click_Button : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1 && Board_Spawn.instance.Turn % 3 == 0)           //플레이어 1이고 자기 턴일 때
         {
-            if(Player_Spawn.instance.Player_Is_Freedom[0] || Player_Spawn.instance.Player_Is_TriFlex[0])
+            if(Player_Spawn.instance.Player_Is_Freedom[0] || Player_Spawn.instance.Player_Is_TriFlex[0] || Player_Spawn.instance.Player_Is_Start[0])
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -123,7 +123,7 @@ public class Click_Button : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 2 && Board_Spawn.instance.Turn % 3 == 1)           //플레이어 2이고 자기 턴일 때
         {
-            if (Player_Spawn.instance.Player_Is_Freedom[1] || Player_Spawn.instance.Player_Is_TriFlex[1])
+            if (Player_Spawn.instance.Player_Is_Freedom[1] || Player_Spawn.instance.Player_Is_TriFlex[1] || Player_Spawn.instance.Player_Is_Start[1])
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -207,7 +207,7 @@ public class Click_Button : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 3 && Board_Spawn.instance.Turn % 3 == 2)           //플레이어 3이고 자기 턴일 때
         {
-            if (Player_Spawn.instance.Player_Is_Freedom[2] || Player_Spawn.instance.Player_Is_TriFlex[2])
+            if (Player_Spawn.instance.Player_Is_Freedom[2] || Player_Spawn.instance.Player_Is_TriFlex[2] || Player_Spawn.instance.Player_Is_Start[2])
             {
                 if (Input.GetMouseButtonDown(0))
                 {

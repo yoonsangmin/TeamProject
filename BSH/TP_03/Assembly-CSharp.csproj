@@ -145,7 +145,9 @@
     <Compile Include="Assets\scrpit\Player_Spawn.cs" />
     <Compile Include="Assets\scrpit\Result_Panel.cs" />
     <Compile Include="Assets\scrpit\Scooooore.cs" />
+    <Compile Include="Assets\scrpit\Turn_Arrow.cs" />
     <Compile Include="Assets\scrpit\Turn_Processing.cs" />
+    <Compile Include="Assets\scrpit\UI.cs" />
     <Compile Include="Assets\scrpit\Win_Check_Script.cs" />
     <Compile Include="Assets\scrpit\select_card.cs" />
     <Compile Include="Assets\time.cs" />

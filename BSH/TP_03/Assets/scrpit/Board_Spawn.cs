@@ -16,6 +16,8 @@ public class Board_Spawn : MonoBehaviourPunCallbacks
     //각 보드칸이 가지고 있는 돈의 밸류
     public int[] BoardMoney;
 
+    public int[] Board_Is_Square;
+
     private void Awake()
     {
         instance = this;
