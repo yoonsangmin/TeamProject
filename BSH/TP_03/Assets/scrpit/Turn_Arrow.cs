@@ -6,7 +6,10 @@ using Photon.Pun;
 public class Turn_Arrow : MonoBehaviourPunCallbacks
 {
     public GameObject[] Arrow;
-    
+
+    public GameObject winpanel;
+    public GameObject losepanel;
+
     void start()
     {
         Arrow[0].SetActive(false);
@@ -21,6 +24,41 @@ public class Turn_Arrow : MonoBehaviourPunCallbacks
         {
             return;
         }
+
+        if (Board_Spawn.instance.Turn % 3 == 0 && PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+            if (winpanel.activeSelf || losepanel.activeSelf)
+            {
+                Arrow[0].GetComponent<AudioSource>().enabled = false;
+            }
+            else
+            {
+                Arrow[0].GetComponent<AudioSource>().enabled = true;
+            }
+        }
+        else if (Board_Spawn.instance.Turn % 3 == 1 && PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            if (winpanel.activeSelf || losepanel.activeSelf)
+            {
+                Arrow[1].GetComponent<AudioSource>().enabled = false;
+            }
+            else
+            {
+                Arrow[1].GetComponent<AudioSource>().enabled = true;
+            }
+        }
+        else if (Board_Spawn.instance.Turn % 3 == 2 && PhotonNetwork.LocalPlayer.ActorNumber == 3)
+        {
+            if (winpanel.activeSelf || losepanel.activeSelf)
+            {
+                Arrow[2].GetComponent<AudioSource>().enabled = false;
+            }
+            else
+            {
+                Arrow[2].GetComponent<AudioSource>().enabled = true;
+            }
+        }
+
         if (Board_Spawn.instance.Turn % 3 == 0)
         {
             Arrow[0].SetActive(true);

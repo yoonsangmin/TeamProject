@@ -73,6 +73,7 @@ MonoBehaviour:
   - B_Square_Devide
   - Delaylay
   - DelayInit
+  - P_Name
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

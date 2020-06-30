@@ -157,9 +157,9 @@ public class Scooooore : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
-            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 원";
-            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 원";
-            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 원";
+            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 점";
+            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 점";
+            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 점";
 
 
 
@@ -169,9 +169,9 @@ public class Scooooore : MonoBehaviourPunCallbacks
         }
         else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
-            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 원";
-            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 원";
-            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 원";
+            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 점";
+            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 점";
+            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 점";
 
 
             NickNameText1.text = PhotonNetwork.PlayerList[0].NickName;
@@ -180,9 +180,9 @@ public class Scooooore : MonoBehaviourPunCallbacks
         }
         else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
         {
-            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 원";
-            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 원";
-            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 원";
+            scoreText1.text = Player_Spawn.instance.Player_Money[0].ToString() + " 점";
+            scoreText2.text = Player_Spawn.instance.Player_Money[1].ToString() + " 점";
+            scoreText3.text = Player_Spawn.instance.Player_Money[2].ToString() + " 점";
 
             NickNameText1.text = PhotonNetwork.PlayerList[0].NickName;
             NickNameText2.text = PhotonNetwork.PlayerList[1].NickName;

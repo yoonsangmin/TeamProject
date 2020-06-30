@@ -30,8 +30,8 @@ public class loading : MonoBehaviour
     }
     public void back()
     {
-
-        SceneManager.LoadScene(0);
+        Application.Quit();
+        //SceneManager.LoadScene(0);
     }
 
     public void main()

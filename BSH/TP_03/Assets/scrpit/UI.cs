@@ -11,4 +11,9 @@ public class UI : MonoBehaviour
     {
         instance = this;
     }
+
+    public void Gameexit()
+    {
+        Application.Quit();
+    }
 }

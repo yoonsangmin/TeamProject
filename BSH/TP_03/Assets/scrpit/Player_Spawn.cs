@@ -12,6 +12,8 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
 
     public GameObject[] Player_Obj;   //플레이어 오브젝트
 
+    public string[] Player_name;       //플레이어 이름
+
     public int[] Player_Position;       //플레이어 위치
 
     public int[] Player_Previous_Position; //플레이어 이동 전 위치
@@ -32,6 +34,7 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
 
     public bool Player_MovingDo;       //플레이어 이동 했는지 아닌지
 
+    public bool Player_Nume_Done;
     private void Awake()
     {
         instance = this;
@@ -59,4 +62,20 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Update()
+    {
+        if (PhotonNetwork.PlayerList.Length == 3 && !Player_Nume_Done)
+        {
+            photonView.RPC("P_Name", RpcTarget.All, 0);     //플레이어 이름 한 번에 저장
+            photonView.RPC("P_Name", RpcTarget.All, 1);     //플레이어 이름 한 번에 저장
+            photonView.RPC("P_Name", RpcTarget.All, 2);     //플레이어 이름 한 번에 저장
+            Player_Nume_Done = true;
+        }
+    }
+
+    [PunRPC]
+    public void P_Name(int num1)
+    {
+        Player_name[num1] = PhotonNetwork.PlayerList[num1].NickName;
+    }
 }
