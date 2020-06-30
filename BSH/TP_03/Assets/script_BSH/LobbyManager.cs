@@ -28,7 +28,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        
+        if(SearchRoom.instance.Is_SearchLoading && !SearchRoom.instance.Is_SearchLoading_Done)
+        {
+            PhotonNetwork.JoinRandomRoom();
+            SearchRoom.instance.Is_SearchLoading_Done = true;
+        }
     }
 
     //마스터서버
@@ -65,7 +69,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.JoinRandomRoom(); //랜덤으로 방에 참가 -> 나중에 바꿀 수 있게 하기
+            //PhotonNetwork.JoinRandomRoom(); //랜덤으로 방에 참가 -> 나중에 바꿀 수 있게 하기
+            SearchRoom.instance.SearchRoomImage.SetActive(true);
         }
         else
         {

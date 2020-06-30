@@ -28,16 +28,15 @@ public class healthscripit : MonoBehaviour
         {
             currentamount += speed * Time.deltaTime;
            
-            textloading.gameObject.SetActive(true);
+            //textloading.gameObject.SetActive(true);
         }
 
         else
         {
 
-            textloading.gameObject.SetActive(false);
+            //textloading.gameObject.SetActive(false);
 
-            SceneManager.LoadScene(3);
-
+            SearchRoom.instance.Is_SearchLoading = true;
         }
         loadingbar.GetComponent<Image>().fillAmount = currentamount / 100;
 
