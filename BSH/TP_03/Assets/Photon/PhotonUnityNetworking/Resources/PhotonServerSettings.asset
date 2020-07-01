@@ -27,7 +27,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: kr
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -36,10 +36,14 @@ MonoBehaviour:
   - b
   - B_M
   - B_Money_Change_Plus_Minus
+  - B_Money_Square
+  - B_Square_Devide
   - C_1
   - C_2
   - C_3
   - ClickRpc
+  - DelayInit
+  - Delaylay
   - DestroyRpc
   - DestroySpaceship
   - EX
@@ -53,11 +57,14 @@ MonoBehaviour:
   - P_Moving
   - P_Moving_F
   - P_Moving_On
+  - P_Name
   - P_P
   - P_Position_Change
   - P_Prev
   - P_Prison
   - P_Prison_F
+  - P_Start_F
+  - P_Start_T
   - P_TriFlex_F
   - P_TriFlex_T
   - Rank
@@ -67,13 +74,6 @@ MonoBehaviour:
   - Turn_UP
   - UIButton
   - UIButtonSwitch
-  - B_Money_Square
-  - P_Start_F
-  - P_Start_T
-  - B_Square_Devide
-  - Delaylay
-  - DelayInit
-  - P_Name
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0
