@@ -2,8 +2,6 @@
 
 # 👉개요
 
----
-
 ## 게임 개요
 
 - **게임 이름 : TriFlex**
@@ -33,8 +31,6 @@
 
 # 👉특징
 
----
-
 ## 담당 업무
 
 **✔ 게임 기획**
@@ -60,8 +56,6 @@
 ✔ UI를 이용한 카드 선택 구현
 
 # 👉참고 링크
-
----
 
 - **유튜브 : [https://www.youtube.com/watch?v=bHrag9FbYs8](https://www.youtube.com/watch?v=bHrag9FbYs8)**
 - **Git Hub : [https://github.com/yoonsangmin/TeamProject](https://github.com/yoonsangmin/TeamProject)**
