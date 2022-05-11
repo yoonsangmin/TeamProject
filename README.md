@@ -1,4 +1,4 @@
-# TriFlex
+# TRIFLEX
 
 # 👉개요
 
