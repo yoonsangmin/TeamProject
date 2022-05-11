@@ -4,7 +4,7 @@
 
 ## 게임 개요
 
-- **게임 이름 : TriFlex**
+- **게임 이름 : TRIFLEX**
 - **장르 : 멀티 플레이 전략 보드 게임**
 - **사용 도구 : Unity 3D, Photon Unity Networking**
 - **목적 : Unity 엔진과 Photon 서버를 이용한 온라인 게임 구현**
