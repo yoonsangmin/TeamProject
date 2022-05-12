@@ -1,5 +1,8 @@
 # TRIFLEX
 
+# 최종 빌드
+- https://github.com/yoonsangmin/TeamProject/tree/master/BSH/TP_03
+
 # 👉개요
 
 ## 게임 개요
